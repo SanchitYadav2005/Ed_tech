@@ -3,12 +3,14 @@ const express = require('express');
 const app = express();
 const cors = require('cors');
 const mongoose = require('mongoose');
-const User = require("./schemas/useSchema");
+const userRoutes = require('./routes/userRoutes')
 
 
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({extended:true}))
+
+app.use('/api/user/', userRoutes)
 
 
 app.get('/', (req,res)=>{
@@ -17,15 +19,7 @@ app.get('/', (req,res)=>{
 app.get('/signup', (req,res)=>{
     res.status(200).json({message: "working"})
 })
-app.post('/signup', async(req,res)=>{
-    const {email, password} = req.body;
-    try{
-        const user = await User.create({email, password});
-        res.status(200).json({message:"created a user", user})
-    }catch(error){
-        res.status(401).json({message: error.message})
-    }
-})
+
 
 
 mongoose.connect(process.env.DB_URL)

@@ -54,7 +54,7 @@ userSchema.statics.signup = async function (email, password) {
 };
 
 userSchema.statics.login = async function(email, password){
-  const user = this.findOne({email})
+  const user = await this.findOne({email})
   if(!user){
     throw Error("email is incorrect!")
   }

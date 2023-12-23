@@ -16,9 +16,7 @@ app.use('/api/user/', userRoutes)
 app.get('/', (req,res)=>{
     res.status(200).json({message: "working"})
 })
-app.get('/signup', (req,res)=>{
-    res.status(200).json({message: "working"})
-})
+
 
 
 

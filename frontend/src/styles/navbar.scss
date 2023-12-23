@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
+$font: 'Roboto Condensed', sans-serif;
+$fontColor: #f34a23;
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-right: 3em;
+    margin-left: 3em;
+
+    .logo-img{
+        width: 10%;
+        height: 100px;
+        cursor: pointer;
+    }
+    .nav{
+        display: flex;
+    }
+
+    .nav-item{
+        list-style: none;
+        padding-right: 2em;
+    }
+    .nav-link{
+        font-family: $font;
+        font-size: 25px;
+        text-decoration: none;
+        color: $fontColor;
+        position: relative;
+    }
+.nav-link:after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        transform: scaleX(0);
+        height: 3px;
+        bottom: -5px;
+        left: 0;
+        background-color: $fontColor;
+        transform-origin: bottom right;
+        box-shadow: 0px 5px 5px $fontColor;
+        transition: transform 0.25s ease-out;
+      }
+      .nav-link::before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        transform: scaleX(0);
+        height: 3px;
+        bottom: 30px;
+        left: 0;
+        background-color: $fontColor;
+        transform-origin: bottom right;
+        box-shadow: 0px 5px 5px $fontColor;
+        transition: transform 0.25s ease-out;
+      }
+      
+      .nav-link:hover:after {
+        transform: scaleX(1);
+        transform-origin: bottom left;
+    }    
+    .nav-link:hover::before {
+        transform: scaleX(1);
+        transform-origin: bottom right;
+    } 
+}

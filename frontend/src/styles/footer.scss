@@ -1,0 +1,115 @@
+:root {
+    --primary: rgba(255,255,255,0.85);
+    --light: rgba(255,255,255,0.5);
+    --accent: rgb(86, 177, 187);
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  main {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    }
+  
+  
+  footer {
+    z-index: 0;
+    width: 100%;
+    background-color: #f34a23;;
+    font: 0.75rem helvetica,sans-serif;
+    color: var(--light);
+    display: flex;
+    justify-content: center;
+    padding: 3rem 8%;
+  
+    & header {
+      width: 100%;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      color: var(--primary);
+      padding: 0 2rem;
+  
+      & h2 {
+        position: relative;
+        text-transform: uppercase;
+  
+        &::before {
+          content: '';
+          position: absolute;
+          transform: translate(-0.5rem,-0.25rem);
+          width: 1rem;
+          height: 1rem;
+          background-color: var(--light);
+          z-index: -1;
+        }
+      }
+  
+      & p {
+        font-style: italic;
+        line-height: 1.8;
+        color: var(--light);
+      }
+  
+      & .icon {
+        font-size: 1.1rem;
+        padding: 0.25rem 0.5rem 0.25rem 0;
+        cursor: pointer;
+        color: var(--accent);
+  
+        &:hover {
+          animation: pulse 0.5s;
+          color: var(--light);
+        }
+      }
+    }
+  
+    & aside {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      gap: 3rem;
+      padding: 0 10rem;
+  
+      & ul {
+        list-style-type: none;
+  
+        & li {
+          padding: 0.5rem 0;
+          cursor: pointer;
+          
+          &:hover:not(:first-of-type) {
+            animation: pulse 0.5s;
+            color: var(--accent);
+          }
+        }
+  
+        & li:first-of-type {
+          color: var(--primary);
+          cursor: default;
+        }
+      }
+    }
+  }
+  
+  @keyframes pulse {
+    0%,100% {
+      transform: translate(0);
+    }
+    50% {
+      transform: translate(-0.1rem,-0.25rem);
+    }
+  }
+  
+  @media (max-width:800px) {
+    footer {
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+  }

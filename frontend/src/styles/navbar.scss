@@ -1,17 +1,19 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
-$font: 'Roboto Condensed', sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Inter&family=Roboto+Mono&display=swap');
+$font:'Roboto Mono', monospace;
 $fontColor: #f34a23;
 
 .navbar {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-right: 3em;
-    margin-left: 3em;
-
+    height: 120px;
+    padding-right: 15em;
+    padding-left: 13em;
+    border-bottom: 1px solid $fontColor;
+    
     .logo-img{
-        width: 10%;
-        height: 100px;
+        width: 20%;
+        height: 120px;
         cursor: pointer;
     }
     .nav{
@@ -21,6 +23,9 @@ $fontColor: #f34a23;
     .nav-item{
         list-style: none;
         padding-right: 2em;
+    }
+    .nav-item:nth-of-type(4){
+        padding-right: 0;
     }
     .nav-link{
         font-family: $font;
@@ -34,7 +39,7 @@ $fontColor: #f34a23;
         position: absolute;
         width: 100%;
         transform: scaleX(0);
-        height: 3px;
+        height: 1px;
         bottom: -5px;
         left: 0;
         background-color: $fontColor;
@@ -47,7 +52,7 @@ $fontColor: #f34a23;
         position: absolute;
         width: 100%;
         transform: scaleX(0);
-        height: 3px;
+        height: 1px;
         bottom: 30px;
         left: 0;
         background-color: $fontColor;

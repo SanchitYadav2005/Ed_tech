@@ -1,72 +1,106 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter&family=Roboto+Mono&display=swap');
-$font:'Roboto Mono', monospace;
-$fontColor: #f34a23;
+@import url("https://fonts.googleapis.com/css2?family=Inter&family=Roboto+Mono&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap");
+$font: "Roboto Mono", monospace;
+$font_color: #f1faee;
+$background_color: #001219;
+$border_color: #264653;
+$btn_font: "Dancing Script", cursive;
 
 .navbar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 120px;
-    padding-right: 15em;
-    padding-left: 13em;
-    border-bottom: 1px solid $fontColor;
-    
-    .logo-img{
-        width: 20%;
-        height: 120px;
-        cursor: pointer;
-    }
-    .nav{
-        display: flex;
-    }
+  display: flex;
+  align-items: center;
+  color: $font_color;
+  background-color: $background_color;
+  justify-content: space-evenly;
+  padding: 1em 0.1em 1em 0.1em;
+  .rainbow-text {
+    /* Create a conic gradient. */
+    /* Double percentages to avoid blur (#000 10%, #fff 10%, #fff 20%, ...). */
+    background: #ca4246;
+    background-color: #ca4246;
+    background: conic-gradient(
+      #ca4246 16.666%,
+      #e16541 16.666%,
+      #e16541 33.333%,
+      #f18f43 33.333%,
+      #f18f43 50%,
+      #8b9862 50%,
+      #8b9862 66.666%,
+      #476098 66.666%,
+      #476098 83.333%,
+      #a7489b 83.333%
+    );
 
-    .nav-item{
-        list-style: none;
-        padding-right: 2em;
+    /* Set thee background size and repeat properties. */
+    background-size: 57%;
+    background-repeat: repeat;
+
+    /* Use the text as a mask for the background. */
+    /* This will show the gradient as a text color rather than element bg. */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    /* Animate the text when loading the element. */
+    /* This animates it on page load and when hovering out. */
+    animation: rainbow-text-animation-rev 0.5s ease forwards;
+
+    cursor: pointer;
+  }
+
+  /* Add animation on hover. */
+  .rainbow-text:hover {
+    animation: rainbow-text-animation 0.5s ease forwards;
+  }
+
+  /* Move the background and make it larger. */
+  /* Animation shown when hovering over the text. */
+  @keyframes rainbow-text-animation {
+    0% {
+      background-size: 57%;
+      background-position: 0 0;
     }
-    .nav-item:nth-of-type(4){
-        padding-right: 0;
+    20% {
+      background-size: 57%;
+      background-position: 0 1em;
     }
-    .nav-link{
-        font-family: $font;
-        font-size: 25px;
-        text-decoration: none;
-        color: $fontColor;
-        position: relative;
+    100% {
+      background-size: 300%;
+      background-position: -9em 1em;
     }
-.nav-link:after {
-        content: '';
-        position: absolute;
-        width: 100%;
-        transform: scaleX(0);
-        height: 1px;
-        bottom: -5px;
-        left: 0;
-        background-color: $fontColor;
-        transform-origin: bottom right;
-        box-shadow: 0px 5px 5px $fontColor;
-        transition: transform 0.25s ease-out;
-      }
-      .nav-link::before {
-        content: '';
-        position: absolute;
-        width: 100%;
-        transform: scaleX(0);
-        height: 1px;
-        bottom: 30px;
-        left: 0;
-        background-color: $fontColor;
-        transform-origin: bottom right;
-        box-shadow: 0px 5px 5px $fontColor;
-        transition: transform 0.25s ease-out;
-      }
-      
-      .nav-link:hover:after {
-        transform: scaleX(1);
-        transform-origin: bottom left;
-    }    
-    .nav-link:hover::before {
-        transform: scaleX(1);
-        transform-origin: bottom right;
-    } 
+  }
+  .nav {
+    display: flex;
+  }
+  .nav-item {
+    list-style: none;
+    margin-right: 2em;
+    .nav-link {
+      text-decoration: none;
+      color: $font_color;
+      font-size: 1.5rem;
+      transition: all 0.3s;
+      padding-bottom: 0.5em;
+    }
+    .nav-link:hover{
+        border-bottom: 1px solid $font_color;
+        box-shadow: 0px 4px 6px -3px rgba(255, 255, 255, 0.8);
+    }
+  }
+  .btn{
+    font-size: 1.5em;
+    text-decoration: none;
+    border: 1px solid $border_color;
+    padding: 0.4em 2em 0.4em 2em;
+    border-radius: 10px;
+    color: $font_color;
+    transition: all 0.3s;
+    font-family: $btn_font;
+  }
+  .btn:hover{
+    background-color: #f34a23;
+    color: white;
+    -webkit-box-shadow: 0px 29px 45px -17px rgba(241, 250, 238, 1);
+      -moz-box-shadow: 0px 29px 45px -17px rgba(241, 250, 238, 1);
+      box-shadow: 0px 29px 45px -17px rgba(241, 250, 238, 1);
+  }
 }

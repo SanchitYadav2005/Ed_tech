@@ -1,11 +1,10 @@
 import "../styles/navbar.scss";
-import logoImg from "../assets/logo.png";
 
 function Navbar() {
   return (
     <>
     <nav className="navbar">
-      <img src={logoImg} className="logo-img" alt="logo-display" />
+      <h1 className="rainbow-text">DEZIRE</h1>
       <ul className="nav">
         <li className="nav-item">
           <a className="nav-link" href="/">
@@ -28,6 +27,7 @@ function Navbar() {
           </a>
         </li>
       </ul>
+      <a href="/signup" className="btn">Register</a>
     </nav>
     </>
   );

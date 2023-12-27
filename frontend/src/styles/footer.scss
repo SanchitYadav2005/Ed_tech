@@ -1,15 +1,17 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter&family=Roboto+Mono&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap");
 $font: "Roboto Mono", monospace;
 $font_color: #f1faee;
-$btn_font: 'Dancing Script', cursive;
+$background_color: #001219;
+$btn_font: "Dancing Script", cursive;
+$border_color: #264653;
 
 footer {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  background: #001219; 
-  
+  background: $background_color;
+
   padding: 3em 1em 3em 1em;
   font-family: $font;
 
@@ -26,7 +28,7 @@ footer {
       font-weight: bolder;
       transition: text-decoration 0.3s;
     }
-    .link-list-item-link:hover{
+    .link-list-item-link:hover {
       text-decoration: underline;
     }
   }
@@ -38,27 +40,25 @@ footer {
     input {
       padding: 1em 4em 1em 1em;
       font-size: 0.9em;
-      background: #001219; /* fallback for old browsers */
-     /* Chrome 10-25, Safari 5.1-6 */
-       /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+      background: $background_color; /* fallback for old browsers */
+      /* Chrome 10-25, Safari 5.1-6 */
+      /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
       color: $font_color;
-      border: 2px solid #264653;
+      border: 2px solid $border_color;
       border-radius: 8px;
       cursor: pointer;
-transition: all 0.3s;
-
+      transition: all 0.3s;
     }
-    input:focus{
+    input:focus {
       outline: none;
-            -webkit-box-shadow: -1px 1px 21px -3px rgba(255,255,255,1);
--moz-box-shadow: -1px 1px 21px -3px rgba(255,255,255,1);
-box-shadow: -1px 1px 21px -3px rgba(255,255,255,1);
-
+      -webkit-box-shadow: -1px 1px 21px -3px rgba(255, 255, 255, 1);
+      -moz-box-shadow: -1px 1px 21px -3px rgba(255, 255, 255, 1);
+      box-shadow: -1px 1px 21px -3px rgba(255, 255, 255, 1);
     }
-    ::placeholder{
+    ::placeholder {
       color: $font_color;
     }
-    .btn{
+    .btn {
       margin-left: 1em;
       padding: 0.5em 3.1em 0.5em 3em;
       border-radius: 8px;
@@ -71,15 +71,13 @@ box-shadow: -1px 1px 21px -3px rgba(255,255,255,1);
       cursor: pointer;
       transition: all 0.3s;
     }
-    .btn:hover{
+    .btn:hover {
       background-color: white;
-      color: #001219;
-      border-color: #264653;
-      -webkit-box-shadow: 0px 29px 45px -17px rgba(241,250,238,1);
--moz-box-shadow: 0px 29px 45px -17px rgba(241,250,238,1);
-box-shadow: 0px 29px 45px -17px rgba(241,250,238,1);
+      color: $background_color;
+      border-color: $border_color;
+      -webkit-box-shadow: 0px 29px 45px -17px rgba(241, 250, 238, 1);
+      -moz-box-shadow: 0px 29px 45px -17px rgba(241, 250, 238, 1);
+      box-shadow: 0px 29px 45px -17px rgba(241, 250, 238, 1);
     }
   }
 }
-
-

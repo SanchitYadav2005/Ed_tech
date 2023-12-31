@@ -14,8 +14,6 @@ $btn_font: "Dancing Script", cursive;
   justify-content: space-evenly;
   padding: 1em 0.1em 1em 0.1em;
   .rainbow-text {
-    /* Create a conic gradient. */
-    /* Double percentages to avoid blur (#000 10%, #fff 10%, #fff 20%, ...). */
     background: #ca4246;
     background-color: #ca4246;
     background: conic-gradient(
@@ -30,24 +28,13 @@ $btn_font: "Dancing Script", cursive;
       #476098 83.333%,
       #a7489b 83.333%
     );
-
-    /* Set thee background size and repeat properties. */
     background-size: 57%;
     background-repeat: repeat;
-
-    /* Use the text as a mask for the background. */
-    /* This will show the gradient as a text color rather than element bg. */
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-
-    /* Animate the text when loading the element. */
-    /* This animates it on page load and when hovering out. */
     animation: rainbow-text-animation-rev 0.5s ease forwards;
-
     cursor: pointer;
   }
-
-  /* Add animation on hover. */
   .rainbow-text:hover {
     animation: rainbow-text-animation 0.5s ease forwards;
   }
@@ -81,12 +68,12 @@ $btn_font: "Dancing Script", cursive;
       transition: all 0.3s;
       padding-bottom: 0.5em;
     }
-    .nav-link:hover{
-        border-bottom: 1px solid $font_color;
-        box-shadow: 0px 4px 6px -3px rgba(255, 255, 255, 0.8);
+    .nav-link:hover {
+      border-bottom: 1px solid $font_color;
+      box-shadow: 0px 4px 6px -3px rgba(255, 255, 255, 0.8);
     }
   }
-  .btn{
+  .btn {
     font-size: 1.5em;
     text-decoration: none;
     border: 1px solid $border_color;
@@ -96,11 +83,11 @@ $btn_font: "Dancing Script", cursive;
     transition: all 0.3s;
     font-family: $btn_font;
   }
-  .btn:hover{
+  .btn:hover {
     background-color: #f34a23;
     color: white;
     -webkit-box-shadow: 0px 29px 45px -17px rgba(241, 250, 238, 1);
-      -moz-box-shadow: 0px 29px 45px -17px rgba(241, 250, 238, 1);
-      box-shadow: 0px 29px 45px -17px rgba(241, 250, 238, 1);
+    -moz-box-shadow: 0px 29px 45px -17px rgba(241, 250, 238, 1);
+    box-shadow: 0px 29px 45px -17px rgba(241, 250, 238, 1);
   }
 }

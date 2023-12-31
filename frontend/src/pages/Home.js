@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { TypeAnimation } from "react-type-animation";
-import MainImg from "../assets/Programmer.gif";
+// import MainImg from "../assets/Programmer.gif";
 import { Fade, Slide } from "react-awesome-reveal";
 import "../styles/home.scss";
 import notes from "../assets/main-section-imgs/notes.jpg";

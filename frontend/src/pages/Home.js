@@ -6,18 +6,15 @@ import { TypeAnimation } from "react-type-animation";
 // import MainImg from "../assets/Programmer.gif";
 import { Fade, Slide } from "react-awesome-reveal";
 import "../styles/home.scss";
-import notes from "../assets/main-section-imgs/notes.jpg";
-import interaction from "../assets/main-section-imgs/interaction.jpg";
-import community from "../assets/main-section-imgs/community.jpg";
-import videos from "../assets/main-section-imgs/videos.jpg";
-import growth from "../assets/main-section-imgs/growth.jpg";
+// import notes from "../assets/main-section-imgs/notes.jpg";
+
 
 const Home = () => {
   const [serverResponse, setServerResponse] = useState();
   useEffect(() => {
     try {
       const fetchData = async () => {
-        const response = await axios.get("/");
+        const response = await axios.get("http://localhost:8080/");
         setServerResponse(response.data);
       };
       fetchData();
@@ -73,7 +70,7 @@ const Home = () => {
           <main className="about-section">
             <Slide direction="right">
               <div className="container">
-                <img src={notes} alt="notes" />
+                <img src={serverResponse.notes} alt="notes" />
                 <p className="notes-para">
                   {serverResponse.notesText}
                 </p>
@@ -82,52 +79,32 @@ const Home = () => {
             <div className="contain-others">
               <div>
                 <img
-                  src={videos}
+                  src={serverResponse.videos}
                   alt="best videos"
                   style={{ height: "265px" }}
                 />
                 <p>
-                  Our video collection isn't just about quantity; it's about
-                  quality. Carefully curated, these videos complement your
-                  learning, providing dynamic explanations and visual
-                  demonstrations that bring theories to life. From engaging
-                  animations to real-world applications, each video is chosen to
-                  reinforce your understanding and make learning enjoyable.
+                  {serverResponse.videosText}
                 </p>
               </div>
               <div>
-                <img src={community} alt="vast community" />
+                <img src={serverResponse.community} alt="vast community" />
                 <p>
-                  Dezire isn't just a platform; it's a community buzzing with
-                  energy! Connect with fellow learners, mentors, and educators
-                  who share your enthusiasm for knowledge. Exchange ideas, seek
-                  guidance, and collaborate on projects. Engage in forums, live
-                  discussions, and workshops that foster a culture of mutual
-                  support and growth.
+                {serverResponse.communityText}
                 </p>
               </div>
               <div>
-                <img src={interaction} alt="interactive engagement" />
+                <img src={serverResponse.interaction} alt="interactive engagement" />
                 <p>
-                  Learning is a collaborative journey at Dezire. Join live study
-                  sessions, interactive quizzes, and engaging webinars hosted by
-                  subject matter experts. Participate in group challenges or
-                  create study circles to tackle complex topics together. Engage
-                  in healthy debates that broaden perspectives and deepen your
-                  understanding.
+                  {serverResponse.interactionText}
                 </p>
               </div>
             </div>
             <Slide direction="left">
               <div className="second-container">
-                <img src={growth} alt="continuous growth" />
+                <img src={serverResponse.growth} alt="continuous growth" />
                 <p>
-                  At Dezire, we believe in nurturing lifelong learners. Access
-                  resources beyond conventional textbooks, such as blogs,
-                  podcasts, and research papers, curated to spark curiosity and
-                  inspire intellectual curiosity. Develop critical thinking
-                  skills and embrace a growth mindset that extends far beyond
-                  the classroom.
+                  {serverResponse.growthText}
                 </p>
               </div>
             </Slide>

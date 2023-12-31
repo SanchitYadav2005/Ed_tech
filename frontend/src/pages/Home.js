@@ -3,11 +3,8 @@ import { useState, useEffect } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { TypeAnimation } from "react-type-animation";
-// import MainImg from "../assets/Programmer.gif";
 import { Fade, Slide } from "react-awesome-reveal";
 import "../styles/home.scss";
-// import notes from "../assets/main-section-imgs/notes.jpg";
-
 
 const Home = () => {
   const [serverResponse, setServerResponse] = useState();
@@ -25,7 +22,9 @@ const Home = () => {
   if (serverResponse) {
     return (
       <>
-        <Navbar />
+        <Fade>
+          <Navbar />
+        </Fade>
         <header>
           <div className="typing-animator">
             <TypeAnimation
@@ -71,9 +70,7 @@ const Home = () => {
             <Slide direction="right">
               <div className="container">
                 <img src={serverResponse.notes} alt="notes" />
-                <p className="notes-para">
-                  {serverResponse.notesText}
-                </p>
+                <p className="notes-para">{serverResponse.notesText}</p>
               </div>
             </Slide>
             <div className="contain-others">
@@ -83,34 +80,43 @@ const Home = () => {
                   alt="best videos"
                   style={{ height: "265px" }}
                 />
-                <p>
-                  {serverResponse.videosText}
-                </p>
+                <p>{serverResponse.videosText}</p>
               </div>
               <div>
                 <img src={serverResponse.community} alt="vast community" />
-                <p>
-                {serverResponse.communityText}
-                </p>
+                <p>{serverResponse.communityText}</p>
               </div>
               <div>
-                <img src={serverResponse.interaction} alt="interactive engagement" />
-                <p>
-                  {serverResponse.interactionText}
-                </p>
+                <img
+                  src={serverResponse.interaction}
+                  alt="interactive engagement"
+                />
+                <p>{serverResponse.interactionText}</p>
               </div>
             </div>
             <Slide direction="left">
               <div className="second-container">
                 <img src={serverResponse.growth} alt="continuous growth" />
-                <p>
-                  {serverResponse.growthText}
-                </p>
+                <p>{serverResponse.growthText}</p>
               </div>
             </Slide>
           </main>
         </Fade>
-        <Footer />
+        <Fade>
+          <section className="lower-section">
+            <h2 className="lower-heading">
+              Get started with <span className="rainbow-text">Dezire</span>
+            </h2>
+            <p className="lower-para">
+              Be part of Dezire! Explore curated YouTube videos 📹,
+              comprehensive notes 🗒️, and a vibrant community 🤝. Join us in
+              exploring, learning, and connecting today! 🚀
+            </p>
+          </section>
+        </Fade>
+        <Fade>
+          <Footer />
+        </Fade>
       </>
     );
   }

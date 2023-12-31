@@ -16,7 +16,6 @@ const responseData = {
       growthText:
         "At Dezire, we believe in nurturing lifelong learners. Access resources beyond conventional textbooks, such as blogs, podcasts, and research papers, curated to spark curiosity and inspire intellectual growth. Develop critical thinking skills and embrace a growth mindset that extends far beyond the classroom. 📚🔍🎙️📝🌱🧠",
 }
-
 module.exports.staticControl = (req, res) => {
     res.status(200).json(responseData)
 }

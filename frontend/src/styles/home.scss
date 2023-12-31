@@ -77,7 +77,9 @@ font-family: $font1;
   }
 
   .container, .second-container{
-    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
     text-align: center;
     img{
         width: 100%;

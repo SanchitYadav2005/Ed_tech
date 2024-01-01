@@ -1,4 +1,5 @@
 import "../styles/navbar.scss";
+import { Link } from "react-router-dom";
 
 function Navbar() {
   return (
@@ -27,7 +28,7 @@ function Navbar() {
           </a>
         </li>
       </ul>
-      <a href="/signup" className="btn">Register</a>
+      <Link to="/register" className="btn">Register</Link>
     </nav>
     </>
   );

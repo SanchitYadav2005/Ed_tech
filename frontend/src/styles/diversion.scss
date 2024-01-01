@@ -1,0 +1,70 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter&family=Roboto+Mono&display=swap");
+$font: "Roboto Mono", monospace;
+
+.container {
+  display: flex;
+  font-family: $font;
+  .developer-section,
+  .learner-section {
+    width: 50%;
+    height: 645px;
+    background: #0099f7;
+    background: -webkit-linear-gradient(to left, #f11712, #0099f7);
+    background: linear-gradient(to left, #f11712, #0099f7);
+    img {
+      height: 200px;
+    }
+    div {
+      margin: 4em 14em;
+      text-align: center;
+      color: #f8f9fa;
+    }
+    .signup, .login{
+        display: block;
+        text-decoration: none;
+        padding: 1.5em 1em 1.5em 1em;
+        border-radius: 20px;
+        color: #fdf0d5;
+        transition: all 0.3s ease-in-out;
+    }
+    .signup:hover, .login:hover{
+        box-shadow: 10px 10px 5px 0px rgba(65,90,119,0.75);
+-webkit-box-shadow: 10px 10px 5px 0px rgba(65,90,119,0.75);
+-moz-box-shadow: 10px 10px 5px 0px rgba(65,90,119,0.75);
+    }
+    .signup{
+        margin-bottom: 2em;
+        margin-top: 2em;
+        background-color: #212529;
+    }
+    .login{
+        background-color: #335c67;
+    }
+  }
+  .developer-section {
+    background: #141e30; 
+    background: -webkit-linear-gradient(
+      to right,
+      #243b55,
+      #141e30
+    ); 
+    background: linear-gradient(
+      to right,
+      #243b55,
+      #141e30
+    ); 
+  }
+  .learner-section {
+    background: #4ca1af; 
+    background: -webkit-linear-gradient(
+      to right,
+      #c4e0e5,
+      #4ca1af
+    ); 
+    background: linear-gradient(
+      to right,
+      #c4e0e5,
+      #4ca1af
+    ); 
+  }
+}

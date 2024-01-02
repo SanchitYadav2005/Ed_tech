@@ -14,10 +14,10 @@ const Diversion = () => {
             className="developer-icon"
           />
           <h3>Sign up or Login as developer</h3>
-          <Link to="/signup" className="signup">
+          <Link to="/developer/signup" className="signup">
             signup
           </Link>
-          <Link to="/login" className="login">
+          <Link to="/developer/login" className="login">
             login
           </Link>
         </div>
@@ -26,10 +26,10 @@ const Diversion = () => {
         <div>
           <img src={learner} alt="icon for learners" className="learner-icon" />
           <h3>Sign up or Login as learner</h3>
-          <Link to="/signup" className="signup">
+          <Link to="/learner/signup" className="signup">
             signup
           </Link>
-          <Link to="/login" className="login">
+          <Link to="/learner/login" className="login">
             login
           </Link>
         </div>

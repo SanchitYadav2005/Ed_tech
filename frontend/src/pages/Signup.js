@@ -1,9 +1,9 @@
 import "../styles/LoginSignup.scss";
 import imgSvg from "../assets/code.svg";
+import logo from "../assets/logo.png"
 import { useState } from "react";
 
 const Signup = () => {
-    
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -28,23 +28,26 @@ const Signup = () => {
             learning, and connecting today! 🚀
           </p>
         </section>
-        <form className="form">
-          <input
-            type="email"
-            placeholder="Email"
-            className="input-email"
-            value={email}
-            onChange={handleEmailChange}
-          />
-          <input
-            type="password"
-            placeholder="Password"
-            className="input-password"
-            value={password}
-            onChange={handlePasswordChange}
-          />
-          <button className="btn">Signup</button>
-        </form>
+        <section className="form">
+          <img src={logo} alt="dezires logo" />
+          <form>
+            <input
+              type="email"
+              placeholder="Email"
+              className="input-email"
+              value={email}
+              onChange={handleEmailChange}
+            />
+            <input
+              type="password"
+              placeholder="Password"
+              className="input-password"
+              value={password}
+              onChange={handlePasswordChange}
+            />
+            <button className="btn">Signup</button>
+          </form>
+        </section>
       </div>
     </>
   );

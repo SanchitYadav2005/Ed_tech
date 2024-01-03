@@ -1,73 +1,126 @@
-.container{
-    display: flex;
-    .display {
-        .rainbow-text {
-            background: #ca4246;
-            background-color: #ca4246;
-            background: conic-gradient(
-              #ca4246 16.666%,
-              #e16541 16.666%,
-              #e16541 33.333%,
-              #f18f43 33.333%,
-              #f18f43 50%,
-              #8b9862 50%,
-              #8b9862 66.666%,
-              #476098 66.666%,
-              #476098 83.333%,
-              #a7489b 83.333%
-            );
-            background-size: 57%;
-            background-repeat: repeat;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: rainbow-text-animation-rev 0.5s ease forwards;
-            cursor: pointer;
-          }
-          .rainbow-text:hover {
-            animation: rainbow-text-animation 0.5s ease forwards;
-          }
-          @keyframes rainbow-text-animation {
-            0% {
-              background-size: 57%;
-              background-position: 0 0;
-            }
-            20% {
-              background-size: 57%;
-              background-position: 0 1em;
-            }
-            100% {
-              background-size: 300%;
-              background-position: -9em 1em;
-            }
-          }
-        background: #0f2027;
-        background: -webkit-linear-gradient(to right, #2c5364, #203a43, #0f2027);
-        background: linear-gradient(to right, #2c5364, #203a43, #0f2027);
-        text-align: center;
-        width: 60%;
-        height: 645px;
-        padding-top: 6em;
-        .heading{
-            color: #fe7f2d;
-        }
-        
-        .para{
-            color: #f1faee;
-            line-height: 30px;
-            width: 70%;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        p::selection,h2::selection,span::selection{
-            background-color: #ffb703;
-        }
-        .svg{
-            width: 30%;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        .svg:hover{
-            transform: scale(1.2);
-        }
+@import url("https://fonts.googleapis.com/css2?family=Inter&family=Roboto+Mono&display=swap");
+$font: "Roboto Mono", monospace;
+
+.container {
+  display: flex;
+  font: $font;
+  .display {
+    .rainbow-text {
+      background: #ca4246;
+      background-color: #ca4246;
+      background: conic-gradient(
+        #ca4246 16.666%,
+        #e16541 16.666%,
+        #e16541 33.333%,
+        #f18f43 33.333%,
+        #f18f43 50%,
+        #8b9862 50%,
+        #8b9862 66.666%,
+        #476098 66.666%,
+        #476098 83.333%,
+        #a7489b 83.333%
+      );
+      background-size: 57%;
+      background-repeat: repeat;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: rainbow-text-animation-rev 0.5s ease forwards;
+      cursor: pointer;
+    }
+    .rainbow-text:hover {
+      animation: rainbow-text-animation 0.5s ease forwards;
+    }
+    @keyframes rainbow-text-animation {
+      0% {
+        background-size: 57%;
+        background-position: 0 0;
       }
+      20% {
+        background-size: 57%;
+        background-position: 0 1em;
+      }
+      100% {
+        background-size: 300%;
+        background-position: -9em 1em;
+      }
+    }
+    background: #0f2027;
+    background: -webkit-linear-gradient(to right, #2c5364, #203a43, #0f2027);
+    background: linear-gradient(to right, #2c5364, #203a43, #0f2027);
+    text-align: center;
+    width: 60%;
+    height: 549px;
+    padding-top: 6em;
+    .heading {
+      color: #fe7f2d;
+    }
+
+    .para {
+      color: #f1faee;
+      line-height: 30px;
+      width: 70%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    p::selection,
+    h2::selection,
+    span::selection {
+      background-color: #ffb703;
+    }
+    .svg {
+      width: 30%;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    .svg:hover {
+      transform: scale(1.2);
+    }
+  }
+  .form {
+    background: #0f2027;
+    background: -webkit-linear-gradient(to left, #2c5364, #203a43, #0f2027);
+    background: linear-gradient(to left, #2c5364, #203a43, #0f2027);
+    width: 40%;
+    img {
+      margin-left: 30%;
+      margin-top: 6em;
+      cursor: pointer;
+    }
+    button {
+      padding: 1em 2em 1em 1em;
+      width: 70%;
+      border-radius: 10px;
+      border: hidden;
+      font-weight: bolder;
+      cursor: pointer;
+      background-color: #ffb703;
+      color: #f8f9fa;
+      transition: all 0.3s;
+    }
+    button:hover {
+      box-shadow: 10px 10px 5px 0px rgba(65, 90, 119, 0.75);
+      -webkit-box-shadow: 10px 10px 5px 0px rgba(65, 90, 119, 0.75);
+      -moz-box-shadow: 10px 10px 5px 0px rgba(65, 90, 119, 0.75);
+    }
+    form {
+      margin-left: 25%;
+      input {
+        display: block;
+        padding: 1em 8em 1em 1em;
+        margin-bottom: 2em;
+        background-color: #edf2f4;
+        border: hidden;
+        border-radius: 10px;
+        box-shadow: 10px 10px 5px 0px rgba(65, 90, 119, 0.75);
+      -webkit-box-shadow: 10px 10px 5px 0px rgba(65, 90, 119, 0.75);
+      -moz-box-shadow: 10px 10px 5px 0px rgba(65, 90, 119, 0.75);
+      }
+      input:focus {
+        outline:none;
+      }
+      ::placeholder {
+        color: #001219;
+      }
+    }
+  }
 }

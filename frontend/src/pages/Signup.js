@@ -1,6 +1,7 @@
 import "../styles/LoginSignup.scss";
 import imgSvg from "../assets/code.svg";
-import logo from "../assets/logo.png"
+import logo from "../assets/logo.png";
+import axios from "axios"; // Import Axios
 import { useState } from "react";
 
 const Signup = () => {
@@ -12,6 +13,36 @@ const Signup = () => {
   };
   const handlePasswordChange = (e) => {
     setPassword(e.target.value);
+  };
+
+  const sendData = async () => {
+    try {
+      const token = localStorage.getItem("token");
+      const response = await axios.post(
+        "http://localhost:8080/api/user/signup",
+        {
+          email: email,
+          password: password,
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      const newToken = response.data.token; 
+      localStorage.setItem("token", newToken); 
+      console.log(response.data); 
+    } catch (error) {
+      console.error("Error occurred:", error); 
+    }
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    sendData();
   };
 
   return (
@@ -30,7 +61,7 @@ const Signup = () => {
         </section>
         <section className="form">
           <img src={logo} alt="dezires logo" />
-          <form>
+          <form onSubmit={handleSubmit}>
             <input
               type="email"
               placeholder="Email"
@@ -45,7 +76,7 @@ const Signup = () => {
               value={password}
               onChange={handlePasswordChange}
             />
-            <button className="btn">Signup</button>
+            <button type="submit" className="btn">Signup</button>
           </form>
         </section>
       </div>

@@ -6,12 +6,19 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const userRoutes = require("./routes/userRoutes");
 const staticRoutes = require('./routes/staticRoutes')
+const session = require("express-session");
 
 app.use(express.static(path.join(__dirname, 'public')))
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+app.use(session({
+  secret: process.env.SECRET,
+  resave: false,
+  saveUninitialized: true,
+  cookie: {secure: true}
+}))
 
 //routes
 app.use("/api/user/", userRoutes);

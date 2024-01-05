@@ -3,7 +3,8 @@ import coding from "../assets/coding.png";
 import learner from "../assets/student.png";
 import { Link } from "react-router-dom";
 
-const Diversion = () => {
+const Diversion = ({toggle}) => {
+  
   return (
     <div className="container">
       <section className="developer-section">
@@ -14,7 +15,7 @@ const Diversion = () => {
             className="developer-icon"
           />
           <h3>Sign up or Login as developer</h3>
-          <Link to="/developer/signup" className="signup">
+          <Link to="/developer/signup" className="signup" onClick={toggle}>
             signup
           </Link>
           <Link to="/developer/login" className="login">

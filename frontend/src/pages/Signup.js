@@ -1,10 +1,10 @@
 import "../styles/LoginSignup.scss";
 import imgSvg from "../assets/code.svg";
 import logo from "../assets/logo.png";
-import axios from "axios"; // Import Axios
+import axios from "axios";
 import { useState } from "react";
 
-const Signup = () => {
+const Signup = ({ isDeveloper }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -32,11 +32,11 @@ const Signup = () => {
         }
       );
 
-      const newToken = response.data.token; 
-      localStorage.setItem("token", newToken); 
-      console.log(response.data); 
+      const newToken = response.data.token;
+      localStorage.setItem("token", newToken);
+      console.log(response.data);
     } catch (error) {
-      console.error("Error occurred:", error); 
+      console.error("Error occurred:", error);
     }
   };
 
@@ -76,7 +76,11 @@ const Signup = () => {
               value={password}
               onChange={handlePasswordChange}
             />
-            <button type="submit" className="btn">Signup</button>
+            {isDeveloper && <input type="text" placeholder="Your role" />}
+
+            <button type="submit" className="btn">
+              Signup
+            </button>
           </form>
         </section>
       </div>

@@ -7,6 +7,7 @@ import { useState } from "react";
 const Signup = ({ isDeveloper }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [role, setRole] = useState("");
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -14,26 +15,28 @@ const Signup = ({ isDeveloper }) => {
   const handlePasswordChange = (e) => {
     setPassword(e.target.value);
   };
-
+  const handleRoleChange = (e) => {
+    setRole(e.target.value);
+  };
+  const URL = isDeveloper
+    ? "http://localhost:8080/api/user/developer/signup"
+    : "http://localhost:8080/api/user/learner/signup";
   const sendData = async () => {
+    const body = isDeveloper
+      ? { email: email, password: password, role: role }
+      : { email: email, password: password };
     try {
       const token = localStorage.getItem("token");
-      const response = await axios.post(
-        "http://localhost:8080/api/user/signup",
-        {
-          email: email,
-          password: password,
+      const response = await axios.post(URL, body, {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
         },
-        {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
+      });
 
       const newToken = response.data.token;
       localStorage.setItem("token", newToken);
+      console.log(URL);
       console.log(response.data);
     } catch (error) {
       console.error("Error occurred:", error);
@@ -43,6 +46,9 @@ const Signup = ({ isDeveloper }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     sendData();
+    setEmail("");
+    setPassword("");
+    setRole("");
   };
 
   return (
@@ -76,7 +82,14 @@ const Signup = ({ isDeveloper }) => {
               value={password}
               onChange={handlePasswordChange}
             />
-            {isDeveloper && <input type="text" placeholder="Your role" />}
+            {isDeveloper && (
+              <input
+                type="text"
+                placeholder="Your role"
+                value={role}
+                onChange={handleRoleChange}
+              />
+            )}
 
             <button type="submit" className="btn">
               Signup

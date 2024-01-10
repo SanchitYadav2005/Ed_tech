@@ -9,7 +9,7 @@ const {
 
 router.post("/developer/signup", DeveloperSignup);
 router.post("/developer/login", DeveloperLogin);
-router.post("/learner/sighup", LearnerSignup);
+router.post("/learner/signup", LearnerSignup);
 router.post("/learner/login", LearnerLogin);
 
 module.exports = router;

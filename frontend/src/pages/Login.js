@@ -1,17 +1,26 @@
 import "../styles/LoginSignup.scss";
 import imgSvg from "../assets/code.svg";
-import logo from "../assets/logo.png"
+import logo from "../assets/logo.png";
 import { useState } from "react";
+import { useLogin } from "../hooks/useLogin";
 
-const Login = () => {
+const Login = ({ isDeveloper }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const { login, error, isLoading } = useLogin();
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
   };
   const handlePasswordChange = (e) => {
     setPassword(e.target.value);
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    await login(email, password, isDeveloper);
+    setEmail("");
+    setPassword("");
   };
 
   return (
@@ -30,7 +39,7 @@ const Login = () => {
         </section>
         <section className="form">
           <img src={logo} alt="dezires logo" />
-          <form>
+          <form onSubmit={handleSubmit}>
             <input
               type="email"
               placeholder="Email"
@@ -45,7 +54,10 @@ const Login = () => {
               value={password}
               onChange={handlePasswordChange}
             />
-            <button className="btn">Login</button>
+            <button type="submit" className="btn" disabled={isLoading}>
+              Login
+            </button>
+            {error && <div>{error}</div>}
           </form>
         </section>
       </div>

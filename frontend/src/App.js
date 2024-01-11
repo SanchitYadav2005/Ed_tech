@@ -20,7 +20,10 @@ function App() {
           path="/register"
           element={<Diversion toggleDeveloper={toggle} />}
         />
-        <Route path="/developer/login" element={<Login />} />
+        <Route
+          path="/developer/login"
+          element={<Login isDeveloper={isDeveloper} />}
+        />
         <Route path="/learner/login" element={<Login />} />
         <Route
           path="/developer/signup"

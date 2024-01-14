@@ -3,11 +3,14 @@ import "../styles/LoginSignup.scss";
 import imgSvg from "../assets/code.svg";
 import logo from "../assets/logo.png";
 import { useLogin } from "../hooks/useLogin";
+import { Link } from "react-router-dom";
+import useAuthContext from "../hooks/useAuthContext";
 
 const Login = ({ isDeveloper }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { login, error, isLoading } = useLogin();
+  const {user} = useAuthContext();
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -16,9 +19,10 @@ const Login = ({ isDeveloper }) => {
   const handlePasswordChange = (e) => {
     setPassword(e.target.value);
   };
-
+ 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     await login(email, password, isDeveloper);
     setEmail("");
     setPassword("");
@@ -54,9 +58,10 @@ const Login = ({ isDeveloper }) => {
             value={password}
             onChange={handlePasswordChange}
           />
-          <button type="submit" className="btn" disabled={isLoading}>
+
+          <Link to={`/developer/${user?.developer?._id}/`} type="submit" className="btn" disabled={isLoading}>
             {isLoading ? "Logging in..." : "Login"}
-          </button>
+          </Link>
           {error && <div className="error-message">{error}</div>}
         </form>
       </section>

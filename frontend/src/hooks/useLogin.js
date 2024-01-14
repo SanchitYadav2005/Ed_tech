@@ -17,7 +17,7 @@ export const useLogin = () => {
         : "http://localhost:8080/api/user/learner/login";
 
       const token = localStorage.getItem("token");
-      console.log(token)
+      console.log(token);
       const response = await axios.post(
         URL,
         {
@@ -36,7 +36,7 @@ export const useLogin = () => {
       localStorage.setItem("token", newToken);
 
       const userJson = response.data;
-      localStorage.setItem("user", JSON.stringify(userJson)); // Convert to string
+      localStorage.setItem("user", JSON.stringify(userJson));
       dispatch({ type: "LOGIN", payload: userJson });
       setIsLoading(false);
     } catch (error) {
@@ -44,7 +44,7 @@ export const useLogin = () => {
         setError(error.response.data.error);
       } else {
         setError("An error occurred while logging in!");
-        console.error(error); // Log only relevant information
+        console.error(error);
       }
     }
   };

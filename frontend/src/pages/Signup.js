@@ -3,12 +3,14 @@ import imgSvg from "../assets/code.svg";
 import logo from "../assets/logo.png";
 import { useState } from "react";
 import { useSignup } from "../hooks/useSignup";
+import {useNavigate} from 'react-router-dom';
 
 const Signup = ({ isDeveloper }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [role, setRole] = useState("");
   const { signUp, error, isLoading } = useSignup();
+  const navigate = useNavigate();
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -31,6 +33,7 @@ const Signup = ({ isDeveloper }) => {
     setEmail("");
     setPassword("");
     setRole("");
+    navigate("/developer");
   };
 
   return (

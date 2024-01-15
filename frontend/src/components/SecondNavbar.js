@@ -1,17 +1,27 @@
 import { Link } from "react-router-dom";
-// import {useEffect,useState} from 'react';
-// import axios from 'axios';
+import { useEffect, useState } from 'react';
 
 const SecondNavbar = () => {
-// const [data, setData] = useState({})
+  const [data, setData] = useState({});
 
-// useEffect(()=>{
-//     const getData = async () => {
-//         try{
-//             const response = axios.get('')
-//         }
-//     }
-// })
+  useEffect(() => {
+    const getData = async () => {
+      // Use try-catch to handle potential errors while parsing JSON
+      try {
+        const gotData = await localStorage.getItem("user");
+        if (gotData) {
+          // Parse the string to an object
+          const userData = JSON.parse(gotData);
+          setData(userData);
+        }
+      } catch (error) {
+        console.error("Error parsing user data:", error);
+      }
+    };
+
+    getData();
+  }, []); // Add an empty dependency array
+
   return (
     <nav className="navbar">
       <ul className="nav">
@@ -32,7 +42,7 @@ const SecondNavbar = () => {
         </li>
       </ul>
       <div className="container">
-        <span>sanchityadav2005@gmail.com</span>
+        <span>{data.developer && data.developer.email}</span>
         <button className="btn">Logout</button>
       </div>
     </nav>

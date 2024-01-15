@@ -1,16 +1,15 @@
 import { Link } from "react-router-dom";
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
+import "../styles/secondNav.scss";
 
 const SecondNavbar = () => {
   const [data, setData] = useState({});
 
   useEffect(() => {
     const getData = async () => {
-      // Use try-catch to handle potential errors while parsing JSON
       try {
         const gotData = await localStorage.getItem("user");
         if (gotData) {
-          // Parse the string to an object
           const userData = JSON.parse(gotData);
           setData(userData);
         }
@@ -20,30 +19,30 @@ const SecondNavbar = () => {
     };
 
     getData();
-  }, []); // Add an empty dependency array
+  }, []);
 
   return (
-    <nav className="navbar">
-      <ul className="nav">
-        <li className="nav-item">
-          <Link className="nav-link" to="/">
+    <nav className="nav">
+      <ul className="nav-list">
+        <li className="navitem">
+          <Link className="navlink" to="/">
             Home
           </Link>
         </li>
-        <li className="nav-item">
-          <Link className="nav-link" to="/videos">
+        <li className="navitem">
+          <Link className="navlink" to="/videos">
             Videos
           </Link>
         </li>
-        <li className="nav-item">
-          <Link className="nav-link" to="/notes">
+        <li className="navitem">
+          <Link className="navlink" to="/notes">
             Notes
           </Link>
         </li>
       </ul>
-      <div className="container">
+      <div className="button-container">
         <span>{data.developer && data.developer.email}</span>
-        <button className="btn">Logout</button>
+        <button className="button">Logout</button>
       </div>
     </nav>
   );

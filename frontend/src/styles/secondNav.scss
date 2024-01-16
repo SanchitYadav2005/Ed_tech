@@ -5,3 +5,53 @@ $font_color: #f1faee;
 $background_color: #001219;
 $border_color: #264653;
 $btn_font: "Dancing Script", cursive;
+$hover_color: #f34a23;
+
+.nav {
+  font-family: $font;
+  display: flex;
+  background-color: $background_color;
+  align-items: center;
+  justify-content: space-around;
+  .nav-list {
+    display: flex;
+    list-style: none;
+    .navitem {
+      .navlink {
+        text-decoration: none;
+        margin-right: 1em;
+        font-size: 20px;
+        color: $font_color;
+        transition: color 0.3s;
+      }
+     .navlink:hover{
+        color: $hover_color;
+     }
+    }
+  }
+  .button-container{
+    display: flex;
+    align-items: center;
+    .button{
+        background-color: transparent;
+        font-size: 18px;
+        color: $font_color;
+        border:1px solid $border_color;
+        cursor: pointer;
+        padding: 0.2em 2em 0.2em 2em;
+        font-family: $btn_font;
+        border-radius: 10px;
+        transition: all 0.3s;
+    }
+    .button:hover {
+        background-color: #f34a23;
+        -webkit-box-shadow: 0px 29px 45px -17px rgba(241, 250, 238, 1);
+        -moz-box-shadow: 0px 29px 45px -17px rgba(241, 250, 238, 1);
+        box-shadow: 0px 29px 45px -17px rgba(241, 250, 238, 1);
+      }
+      .link{
+        color: $font_color;
+        width: fit-content;
+      }
+  }
+}

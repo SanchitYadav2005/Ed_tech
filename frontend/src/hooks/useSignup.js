@@ -6,7 +6,6 @@ export const useSignup = () => {
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const { dispatch } = useAuthContext();
-
   const signUp = async (body, isDeveloper) => {
     const URL = isDeveloper
       ? "http://localhost:8080/api/user/developer/signup"
@@ -45,5 +44,5 @@ export const useSignup = () => {
     }
   };
 
-  return { signUp, isLoading, error };
+  return { signUp, isLoading, error,};
 };

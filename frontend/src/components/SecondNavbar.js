@@ -41,7 +41,9 @@ const SecondNavbar = () => {
         </li>
       </ul>
       <div className="button-container">
-        <span>{data.developer && data.developer.email}</span>
+        <Link className="link" to="/user/developer/profile">
+          {data.developer && data.developer.email}
+        </Link>
         <button className="button">Logout</button>
       </div>
     </nav>

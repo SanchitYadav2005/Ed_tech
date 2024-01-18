@@ -13,6 +13,8 @@ $hover_color: #f34a23;
   background-color: $background_color;
   align-items: center;
   justify-content: space-around;
+  padding-top: 1em;
+  padding-bottom: 1em;
   .nav-list {
     display: flex;
     list-style: none;
@@ -52,6 +54,11 @@ $hover_color: #f34a23;
       .link{
         color: $font_color;
         width: fit-content;
+        text-decoration: none;
+        margin-right: 3em;
+        padding: 0.3em 2em 0.5em 2em;
+        background-color: $hover_color;
+        border-radius: 20px;
       }
   }
 }

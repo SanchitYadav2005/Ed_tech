@@ -1,0 +1,44 @@
+$form-background: #FFFFFF;
+$label-background: #f34a23;
+$label-hover-background: #ADADAD;
+$border_color: #001219;
+
+form {
+  margin: 0 auto;
+  padding: 20px;
+  width: 400px;
+  height: auto;
+  overflow: hidden;
+  background: $form-background;
+  border: 1px solid $border_color;
+  border-radius: 3px;
+  margin-top: 5em;
+}
+
+label {
+  margin: 0;
+  padding: 10px;
+  width: auto;
+  max-width: 300px;
+  height: auto;
+  background-color: $label-background;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  text-align: center;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -webkit-transition: 0.2s ease all;
+  -moz-transition: 0.2s ease all;
+  -ms-transition: 0.2s ease all;
+  -o-transition: 0.2s ease all;
+  transition: 0.2s ease all;
+
+  &:hover {
+    background: $label-hover-background;
+  }
+}
+
+[type=file] {
+  display: none;
+}

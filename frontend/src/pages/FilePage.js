@@ -6,7 +6,7 @@ const FilePage = () => {
     <>
       <SecondNavbar />
       <main className="main-container">
-        <form>
+        <form className="file-container">
           <label className="file-label" for="file">
             Choose file
           </label>

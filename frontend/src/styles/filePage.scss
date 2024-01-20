@@ -1,9 +1,9 @@
-$form-background: #FFFFFF;
+$form-background: #ffffff;
 $label-background: #f34a23;
-$label-hover-background: #ADADAD;
+$label-hover-background: #adadad;
 $border_color: #001219;
 
-form {
+.file-container {
   margin: 0 auto;
   padding: 20px;
   width: 400px;
@@ -15,7 +15,7 @@ form {
   margin-top: 5em;
 }
 
-label {
+.file-label {
   margin: 0;
   padding: 10px;
   width: auto;
@@ -39,6 +39,6 @@ label {
   }
 }
 
-[type=file] {
+[type="file"] {
   display: none;
 }

@@ -35,15 +35,15 @@ header {
 }
 
 .about-section {
-font-family: $font1;
+  font-family: $font1;
   background-color: $background_color;
   display: flex;
   flex-direction: column;
   color: $font_color;
   margin-top: 10em;
   padding: 10em 1em 10em 1em;
-  p{
-    color:#CCCCCC;
+  p {
+    color: #cccccc;
   }
   .contain-others {
     display: flex;
@@ -51,7 +51,7 @@ font-family: $font1;
     justify-content: center;
     margin-top: 3em;
     margin-bottom: 3em;
-    
+
     div {
       width: 30%;
       text-align: center;
@@ -64,44 +64,45 @@ font-family: $font1;
       backdrop-filter: blur(5px);
       padding: 2em 3em 2em 3em;
       cursor: pointer;
-      img{
+      img {
         border-radius: 20px;
         box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
         transition: all 0.3s;
         width: 100%;
       }
-      img:hover{
+      img:hover {
         transform: scale(1.2);
       }
     }
   }
 
-  .container, .second-container{
+  .container,
+  .second-container {
     margin-left: auto;
     margin-right: auto;
     width: 70%;
     text-align: center;
-    img{
-        width: 100%;
-        height: 500px;
-        border-radius: 20px;
-        cursor: pointer;
-        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    display: block;
+    img {
+      width: 100%;
+      height: 500px;
+      border-radius: 20px;
+      cursor: pointer;
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     }
   }
-  
 }
 
-.lower-section{
+.lower-section {
   text-align: center;
   margin: 15em auto 15em auto;
   width: 40%;
 
-  .lower-heading{
+  .lower-heading {
     font-size: 3em;
     color: #bde0fe;
   }
-  .lower-para{
+  .lower-para {
     line-height: 40px;
   }
   .rainbow-text {

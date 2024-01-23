@@ -7,10 +7,8 @@ import FilePage from "./pages/FilePage";
 import { Routes, Route } from "react-router-dom";
 import { useState } from "react";
 
-
 function App() {
   const [isDeveloper, toggleDeveloper] = useState(true);
-  
 
   const toggle = () => {
     toggleDeveloper((prevState) => !prevState);

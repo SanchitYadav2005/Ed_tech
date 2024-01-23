@@ -1,9 +1,18 @@
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import "../styles/secondNav.scss";
+import { useLogOut } from "../hooks/useLogout";
+import { useNavigate } from "react-router-dom";
 
 const SecondNavbar = () => {
   const [data, setData] = useState({});
+  const { logout } = useLogOut();
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    logout();
+    navigate("/");
+  };
 
   useEffect(() => {
     const getData = async () => {
@@ -44,7 +53,9 @@ const SecondNavbar = () => {
         <Link className="link" to="/user/developer/profile">
           {data.developer && data.developer.email}
         </Link>
-        <button className="button">Logout</button>
+        <button className="button" onClick={handleClick}>
+          Logout
+        </button>
       </div>
     </nav>
   );

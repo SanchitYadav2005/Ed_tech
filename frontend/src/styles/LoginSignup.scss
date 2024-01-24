@@ -2,6 +2,13 @@
 $font: "Roboto Mono", monospace;
 
 .container {
+  .icon {
+    position: absolute;
+    width: 2%;
+    right: 130px;
+    bottom: 243px;
+    cursor: pointer;
+  }
   display: flex;
   font: $font;
   .display {
@@ -112,11 +119,11 @@ $font: "Roboto Mono", monospace;
         border: hidden;
         border-radius: 10px;
         box-shadow: 10px 10px 5px 0px rgba(65, 90, 119, 0.75);
-      -webkit-box-shadow: 10px 10px 5px 0px rgba(65, 90, 119, 0.75);
-      -moz-box-shadow: 10px 10px 5px 0px rgba(65, 90, 119, 0.75);
+        -webkit-box-shadow: 10px 10px 5px 0px rgba(65, 90, 119, 0.75);
+        -moz-box-shadow: 10px 10px 5px 0px rgba(65, 90, 119, 0.75);
       }
       input:focus {
-        outline:none;
+        outline: none;
       }
       ::placeholder {
         color: #001219;

@@ -42,3 +42,30 @@ $border_color: #001219;
 [type="file"] {
   display: none;
 }
+
+.upload-btn {
+  margin-left: 33.7%;
+  margin-top: 20px;
+  width: 32.5%;
+  padding: 1em 2em 1em 2em;
+  background-color: $label-background;
+  border: hidden;
+  cursor: pointer;
+  border-radius: 5px;
+  color: $form-background;
+  font-weight: bolder;
+  transition: box-shadow 0.3s;
+}
+.upload-btn:hover {
+  box-shadow: 10px 10px 5px 0px rgba(65, 90, 119, 0.75);
+  -webkit-box-shadow: 10px 10px 5px 0px rgba(65, 90, 119, 0.75);
+  -moz-box-shadow: 10px 10px 5px 0px rgba(65, 90, 119, 0.75);
+}
+.selected-file {
+  font-size: 1.2em;
+  font-weight: bolder;
+  margin-left: 34%;
+  .span {
+    font-weight: lighter;
+  }
+}

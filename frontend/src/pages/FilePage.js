@@ -9,7 +9,7 @@ const FilePage = () => {
   const handleChange = (e) => {
     const file = e.target.files[0];
     setSelectedFile(file);
-    setSelectedFileName(file ? file.name : ""); // Set the file name if a file is selected
+    setSelectedFileName(file ? file.name : ""); 
   };
 
   useEffect(() => {

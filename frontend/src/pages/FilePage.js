@@ -1,20 +1,26 @@
 import React, { useState, useEffect } from "react";
 import SecondNavbar from "../components/SecondNavbar";
 import "../styles/filePage.scss";
+import { useUpload } from "../hooks/useUpload";
 
 const FilePage = () => {
   const [selectedFile, setSelectedFile] = useState(null);
   const [selectedFileName, setSelectedFileName] = useState("");
+  const { upload, isLoading } = useUpload();
 
   const handleChange = (e) => {
     const file = e.target.files[0];
     setSelectedFile(file);
-    setSelectedFileName(file ? file.name : ""); 
+    setSelectedFileName(file ? file.name : "");
   };
 
   useEffect(() => {
     console.log(selectedFile);
   }, [selectedFile]);
+
+  const handleSubmit = async () => {
+    await upload(selectedFile);
+  };
 
   return (
     <>
@@ -31,9 +37,17 @@ const FilePage = () => {
             onChange={handleChange}
           />
         </form>
-        
-        <button className="upload-btn">Upload</button>
-        <p className="selected-file">Selected File: <span className="span">{selectedFileName}</span></p>
+
+        <button
+          className="upload-btn"
+          onClick={handleSubmit}
+          disabled={isLoading}
+        >
+          {isLoading ? "Uploading..." : "Upload"}
+        </button>
+        <p className="selected-file">
+          Selected File: <span className="span">{selectedFileName}</span>
+        </p>
         <div className="uploaded-files-container">
           <h3>You don't have any uploaded files yet</h3>
         </div>

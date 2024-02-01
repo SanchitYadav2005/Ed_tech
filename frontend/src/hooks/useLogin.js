@@ -18,18 +18,22 @@ export const useLogin = () => {
 
       const token = localStorage.getItem("token");
       console.log(token);
+
+      const headers = {
+        "Content-Type": "application/json",
+      };
+
+      if (token) {
+        headers.Authorization = `Bearer ${token}`;
+      }
+
       const response = await axios.post(
         URL,
         {
           email: email,
           password: password,
         },
-        {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-        }
+        { headers }
       );
 
       const newToken = response.data.token;
@@ -40,6 +44,7 @@ export const useLogin = () => {
       dispatch({ type: "LOGIN", payload: userJson });
       setIsLoading(false);
     } catch (error) {
+      setIsLoading(false);
       if (error.response && error.response.data && error.response.data.error) {
         setError(error.response.data.error);
       } else {

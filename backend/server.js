@@ -8,7 +8,7 @@ const userRoutes = require("./routes/userRoutes");
 const staticRoutes = require("./routes/staticRoutes");
 const fileRoutes = require("./routes/fileRoutes");
 const session = require("express-session");
-const ExpressError = require("./utils/ExpressError");
+
 
 app.use(express.static(path.join(__dirname, "public")));
 app.use(cors());
@@ -34,9 +34,7 @@ app.use("/api/user/", userRoutes);
 app.use("/", staticRoutes);
 app.use("/api/user/", fileRoutes)
 
-app.all("*", (req, res, next) => {
-  next(new ExpressError("page not found", 404))
-});
+
 
 mongoose
   .connect(process.env.DB_URL)

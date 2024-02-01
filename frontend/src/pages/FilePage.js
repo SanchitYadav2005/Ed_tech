@@ -6,12 +6,15 @@ import { useUpload } from "../hooks/useUpload";
 const FilePage = () => {
   const [selectedFile, setSelectedFile] = useState(null);
   const [selectedFileName, setSelectedFileName] = useState("");
+  const [isUploadDisabled, setIsUploadDisabled] = useState(true);
   const { upload, isLoading } = useUpload();
 
   const handleChange = (e) => {
     const file = e.target.files[0];
+
     setSelectedFile(file);
     setSelectedFileName(file ? file.name : "");
+    setIsUploadDisabled(!isUploadDisabled);
   };
 
   useEffect(() => {
@@ -41,7 +44,7 @@ const FilePage = () => {
         <button
           className="upload-btn"
           onClick={handleSubmit}
-          disabled={isLoading}
+          disabled={isUploadDisabled}
         >
           {isLoading ? "Uploading..." : "Upload"}
         </button>

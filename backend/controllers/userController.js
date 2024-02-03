@@ -80,16 +80,16 @@ module.exports.LearnerLogin = async (req, res) => {
     res.status(401).json({ message: error.message });
   }
 };
-// updating values for learner 
-module.exports.updateLearner = async (req,res) => {
-  const {id} = req.params;
-  try{
+// updating values for learner
+module.exports.updateLearner = async (req, res) => {
+  const { id } = req.params;
+  try {
     const learner = await Learner.findByIdAndUpdate(id, req.body);
-    if(!learner){
+    if (!learner) {
       return res.status(404).json({ message: "Learner not found" });
     }
-    res.status(200).json({message: "user found", learner})
-  }catch (error) {
+    res.status(200).json({ message: "user found", learner });
+  } catch (error) {
     console.error("Error updating developer:", error);
 
     // Handle specific Mongoose validation error
@@ -101,15 +101,19 @@ module.exports.updateLearner = async (req,res) => {
 
     res.status(500).json({ message: "Internal server error" });
   }
-}
+};
 //finding user
-
-module.exports.getUserById = async (req, res) => {
-  const { id } = req.params;
+// made this function because we are using it in two exported funtions
+async function findUser(id) {
   const developerUser = await Developer.findById(id);
   const learnerUser = await Learner.findById(id);
+  return { developerUser, learnerUser };
+}
+module.exports.getUserById = async (req, res) => {
+  const { id } = req.params;
   try {
     let user = undefined;
+    const { developerUser, learnerUser } = await findUser(id);
     if (developerUser) {
       user = developerUser;
     } else if (learnerUser) {
@@ -117,8 +121,28 @@ module.exports.getUserById = async (req, res) => {
     } else {
       res.status(404).json({ message: "user not found" });
     }
-    res.status(200).json({ message: "user has been send", user });
+    res.status(200).json({ message: "user has been sended", user });
   } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+};
+// adding delete controller for developer and learner
+
+module.exports.deleteUser = async (req, res) => {
+  const { id } = req.params;
+  const {developerUser, learnerUser} = await findUser(id)
+  let user = undefined;
+  try{
+    if(developerUser){
+      user = developerUser
+    }else if(learnerUser){
+      user = learnerUser
+    }else{
+      res.status(401).json({message: "no user found!"})
+    }
+    res.status(200).json({message: "user has been sended", user})
+  }catch (error) {
     console.error(error);
     res.status(500).json({ error: "Internal Server Error" });
   }

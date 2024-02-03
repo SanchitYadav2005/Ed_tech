@@ -5,13 +5,17 @@ const {
   DeveloperLogin,
   LearnerLogin,
   LearnerSignup,
-  getUserById
+  getUserById,
+  updateDeveloper,
+  updateLearner,
 } = require("../controllers/userController");
 
 router.post("/developer/signup", DeveloperSignup);
 router.post("/developer/login", DeveloperLogin);
 router.post("/learner/signup", LearnerSignup);
 router.post("/learner/login", LearnerLogin);
-router.get("/:id/dashboard", getUserById)
+router.get("/:id/dashboard", getUserById);
+router.put("/develope/:id/dashboard", updateDeveloper);
+router.put("/learner/:id/dashboard", updateLearner);
 
 module.exports = router;

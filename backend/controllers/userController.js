@@ -56,3 +56,21 @@ module.exports.LearnerLogin = async (req, res) => {
     res.status(401).json({ message: error.message });
   }
 };
+
+//finding user
+
+module.exports.getUserById = async (req, res) => {
+  const { id } = req.params;
+  try {
+    let user = undefined;
+    if (await Developer.findById(id)) {
+      user = await Developer.findById(id);
+    } else {
+      user = await Learner.findById(id);
+    }
+    res.status(200).json({ message: "user has been send", user });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+};

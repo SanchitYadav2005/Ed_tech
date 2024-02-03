@@ -8,6 +8,7 @@ const {
   getUserById,
   updateDeveloper,
   updateLearner,
+  deleteUser
 } = require("../controllers/userController");
 
 router.post("/developer/signup", DeveloperSignup);
@@ -17,5 +18,6 @@ router.post("/learner/login", LearnerLogin);
 router.get("/:id/dashboard", getUserById);
 router.put("/develope/:id/dashboard", updateDeveloper);
 router.put("/learner/:id/dashboard", updateLearner);
+router.post("/:id/delete", deleteUser)
 
 module.exports = router;

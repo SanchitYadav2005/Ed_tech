@@ -136,8 +136,10 @@ module.exports.deleteUser = async (req, res) => {
   try{
     if(developerUser){
       user = developerUser
+      await Developer.findByIdAndDelete(id)
     }else if(learnerUser){
       user = learnerUser
+      await Learner.findByIdAndDelete(id)
     }else{
       res.status(401).json({message: "no user found!"})
     }

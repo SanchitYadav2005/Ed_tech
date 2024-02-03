@@ -24,3 +24,18 @@ module.exports.uploadFile = async (req, res) => {
     res.status(500).json({ message: errorMessage });
   }
 };
+
+module.exports.getAllFiles = async (req, res) => {
+  // this find function will fetch all the abliable files
+  try{
+    const file = await File.find({}) 
+    if(!file){
+      res.status(404).json({message: "no files!"})
+    }
+    res.status(200).json({message: "files have been sended!", file})
+  }catch (error){
+    console.log(error)
+    res.status(401).json({message: "error!"})
+  }
+  
+}

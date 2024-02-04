@@ -143,7 +143,7 @@ module.exports.deleteUser = async (req, res) => {
     }else{
       res.status(401).json({message: "no user found!"})
     }
-    res.status(200).json({message: "user has been sended", user})
+    res.status(200).json({message: "user has been deleted", user})
   }catch (error) {
     console.error(error);
     res.status(500).json({ error: "Internal Server Error" });

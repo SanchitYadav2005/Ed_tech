@@ -38,8 +38,11 @@ export const useLogin = () => {
 
       const newToken = response.data.token;
       localStorage.setItem("token", newToken);
-
+      
       const userJson = response.data;
+      console.log("Token:", newToken);
+      console.log("User Info:", userJson);
+      console.log(response)
       localStorage.setItem("user", JSON.stringify(userJson));
       dispatch({ type: "LOGIN", payload: userJson });
       setIsLoading(false);

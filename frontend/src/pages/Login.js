@@ -29,7 +29,7 @@ const Login = ({ isDeveloper }) => {
     await login(email, password, isDeveloper);
     setEmail("");
     setPassword("");
-    navigate("/developer");
+    // navigate("/developer");
   };
 
   return (

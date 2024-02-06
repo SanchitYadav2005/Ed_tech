@@ -13,14 +13,17 @@ export const AuthContextProvider = ({ children }) => {
     if (storedUser) {
       dispatch({ type: "LOGIN", payload: storedUser });
     }
+    console.log(storedUser)
   }, []);
+
+  useEffect(() => {
+    console.log("AuthContext state:", state);
+  }, [state]);
 
   const contextValue = {
     state,
     dispatch,
   };
-
-  console.log("AuthContext state:", state);
 
   return (
     <AuthContext.Provider value={contextValue}>

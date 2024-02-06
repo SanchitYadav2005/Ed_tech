@@ -23,13 +23,15 @@ const Login = ({ isDeveloper }) => {
     setPassword(e.target.value);
   };
 
+
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     await login(email, password, isDeveloper);
     setEmail("");
     setPassword("");
-    // navigate("/developer");
+    navigate(`/developer/${user?.developer?._id}/`)
   };
 
   return (
@@ -92,7 +94,6 @@ const Login = ({ isDeveloper }) => {
           )}
 
           <button
-            to={`/developer/${user?.developer?._id}/`}
             type="submit"
             className="btn"
             disabled={isLoading}

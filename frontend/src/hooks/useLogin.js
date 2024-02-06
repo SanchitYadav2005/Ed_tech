@@ -21,11 +21,13 @@ export const useLogin = () => {
 
       const headers = {
         "Content-Type": "application/json",
+        ...(token && { Authorization: `Bearer ${token}` }),
       };
+      console.log(headers)
 
-      if (token) {
-        headers.Authorization = `Bearer ${token}`;
-      }
+      // if (token) {
+      //   headers.Authorization = `Bearer ${token}`;
+      // }
 
       const response = await axios.post(
         URL,
@@ -35,14 +37,12 @@ export const useLogin = () => {
         },
         { headers }
       );
-
+      console.log(response);
       const newToken = response.data.token;
-      localStorage.setItem("token", newToken);
-      
+      console.log(localStorage.setItem("token", newToken))
+
       const userJson = response.data;
-      console.log("Token:", newToken);
-      console.log("User Info:", userJson);
-      console.log(response)
+      
       localStorage.setItem("user", JSON.stringify(userJson));
       dispatch({ type: "LOGIN", payload: userJson });
       setIsLoading(false);

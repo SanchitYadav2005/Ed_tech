@@ -6,9 +6,11 @@ import Signup from "./pages/Signup";
 import FilePage from "./pages/FilePage";
 import { Routes, Route } from "react-router-dom";
 import { useState } from "react";
+import useAuthContext from "./hooks/useAuthContext";
 
 function App() {
   const [isDeveloper, toggleDeveloper] = useState(true);
+  const {user} = useAuthContext();
 
   const toggle = () => {
     toggleDeveloper((prevState) => !prevState);
@@ -32,7 +34,7 @@ function App() {
           element={<Signup isDeveloper={isDeveloper} />}
         />
         <Route path="/learner/signup" element={<Signup />} />
-        <Route path="/developer" element={<FilePage />} />
+        <Route path={`/developer/${user?.developer?._id}/`} element={<FilePage />} />
       </Routes>
     </React.Fragment>
   );

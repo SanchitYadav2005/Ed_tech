@@ -23,15 +23,13 @@ const Login = ({ isDeveloper }) => {
     setPassword(e.target.value);
   };
 
-
-
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     await login(email, password, isDeveloper);
     setEmail("");
     setPassword("");
-    navigate(`/developer/${user?.developer?._id}/`)
+    navigate(`/developer/${user?.developer?._id}/`);
   };
 
   return (
@@ -93,11 +91,7 @@ const Login = ({ isDeveloper }) => {
             </svg>
           )}
 
-          <button
-            type="submit"
-            className="btn"
-            disabled={isLoading}
-          >
+          <button type="submit" className="btn" disabled={isLoading}>
             {isLoading ? "Logging in..." : "Login"}
           </button>
           {error && <div className="error-message">{error}</div>}

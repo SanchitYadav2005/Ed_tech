@@ -5,6 +5,7 @@ import { useState } from "react";
 import { useSignup } from "../hooks/useSignup";
 import { useNavigate } from "react-router-dom";
 import { useShowPassword } from "../hooks/useShowPassword";
+import useAuthContext from "../hooks/useAuthContext";
 
 const Signup = ({ isDeveloper }) => {
   const [email, setEmail] = useState("");
@@ -12,6 +13,7 @@ const Signup = ({ isDeveloper }) => {
   const [role, setRole] = useState("");
   const { show, toggle } = useShowPassword();
   const { signUp, error, isLoading } = useSignup();
+  const {user} = useAuthContext()
   const navigate = useNavigate();
 
   const handleEmailChange = (e) => {
@@ -35,7 +37,7 @@ const Signup = ({ isDeveloper }) => {
     setEmail("");
     setPassword("");
     setRole("");
-    navigate("/developer");
+    navigate(`/developer/${user?.developer?._id}/`);
   };
 
   return (

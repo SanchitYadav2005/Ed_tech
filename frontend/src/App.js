@@ -9,7 +9,7 @@ import { useState } from "react";
 import useAuthContext from "./hooks/useAuthContext";
 
 function App() {
-  const [isDeveloper, toggleDeveloper] = useState(true);
+  const [isDeveloper, toggleDeveloper] = useState(false);
   const {user} = useAuthContext();
 
   const toggle = () => {

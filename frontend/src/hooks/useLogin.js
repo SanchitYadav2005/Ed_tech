@@ -17,17 +17,10 @@ export const useLogin = () => {
         : "http://localhost:8080/api/user/learner/login";
 
       const token = localStorage.getItem("token");
-      console.log(token);
-
       const headers = {
         "Content-Type": "application/json",
         ...(token && { Authorization: `Bearer ${token}` }),
       };
-      console.log(headers)
-
-      // if (token) {
-      //   headers.Authorization = `Bearer ${token}`;
-      // }
 
       const response = await axios.post(
         URL,
@@ -39,10 +32,10 @@ export const useLogin = () => {
       );
       console.log(response);
       const newToken = response.data.token;
-      console.log(localStorage.setItem("token", newToken))
+      localStorage.setItem("token", newToken);
 
       const userJson = response.data;
-      
+
       localStorage.setItem("user", JSON.stringify(userJson));
       dispatch({ type: "LOGIN", payload: userJson });
       setIsLoading(false);

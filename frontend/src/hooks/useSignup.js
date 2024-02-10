@@ -27,7 +27,7 @@ export const useSignup = () => {
           Authorization: `Bearer ${token}`,
         },
       });
-
+console.log(response)
       const newToken = response.data.token;
       localStorage.setItem("token", newToken);
 

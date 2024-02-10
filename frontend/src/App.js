@@ -9,11 +9,11 @@ import { useState } from "react";
 import useAuthContext from "./hooks/useAuthContext";
 
 function App() {
-  const [isDeveloper, toggleDeveloper] = useState(false);
-  const {user} = useAuthContext();
+  const [isDeveloper, toggleDeveloper] = useState(true);
+  const {state} = useAuthContext();
 
-  const toggle = () => {
-    toggleDeveloper((prevState) => !prevState);
+  const toggle =() => {
+    toggleDeveloper((prevIsDeveloper) => !prevIsDeveloper);
   };
 
   return (
@@ -22,7 +22,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route
           path="/register"
-          element={<Diversion toggleDeveloper={toggle} />}
+          element={<Diversion togleDeveloper={toggle} />}
         />
         <Route
           path="/developer/login"
@@ -34,7 +34,7 @@ function App() {
           element={<Signup isDeveloper={isDeveloper} />}
         />
         <Route path="/learner/signup" element={<Signup />} />
-        <Route path={`/developer/${user?.developer?._id}/`} element={<FilePage />} />
+        <Route path={`/developer/${state.user?.developer?._id}/`} element={<FilePage />} />
       </Routes>
     </React.Fragment>
   );

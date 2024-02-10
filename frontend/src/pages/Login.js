@@ -12,7 +12,7 @@ const Login = ({ isDeveloper }) => {
   const [password, setPassword] = useState("");
   const { login, error, isLoading } = useLogin();
   const { show, toggle } = useShowPassword();
-  const { user } = useAuthContext();
+  const { state } = useAuthContext();
   const navigate = useNavigate();
 
   const handleEmailChange = (e) => {
@@ -25,11 +25,10 @@ const Login = ({ isDeveloper }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     await login(email, password, isDeveloper);
     setEmail("");
     setPassword("");
-    navigate(`/developer/${user?.developer?._id}/`);
+    navigate(`/developer/${state.user?.developer?._id}/`);
   };
 
   return (

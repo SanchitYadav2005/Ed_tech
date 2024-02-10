@@ -13,7 +13,7 @@ const Signup = ({ isDeveloper }) => {
   const [role, setRole] = useState("");
   const { show, toggle } = useShowPassword();
   const { signUp, error, isLoading } = useSignup();
-  const {user} = useAuthContext()
+  const {state} = useAuthContext()
   const navigate = useNavigate();
 
   const handleEmailChange = (e) => {
@@ -33,11 +33,12 @@ const Signup = ({ isDeveloper }) => {
     const body = isDeveloper
       ? { email: email, password: password, role: role }
       : { email: email, password: password };
-    await signUp(body, isDeveloper);
+    await console.log(signUp(body, isDeveloper)); 
+    
     setEmail("");
     setPassword("");
     setRole("");
-    navigate(`/developer/${user?.developer?._id}/`);
+    navigate(`/developer/${state.user?.developer?._id}/`);
   };
 
   return (

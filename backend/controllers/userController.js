@@ -23,9 +23,7 @@ module.exports.DeveloperLogin = async (req, res) => {
   const { email, password } = req.body;
   try {
     const developer = await Developer.login(email, password);
-    const token = createToken(developer._id);
-    console.log(token)
-    res.send({message:'toked generated',createToken,token});
+    const token = createToken(developer._id)
     res
       .status(200)
       .json({ message: "logged in successfully", developer, token });

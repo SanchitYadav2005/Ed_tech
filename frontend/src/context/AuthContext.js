@@ -1,5 +1,5 @@
 import { useReducer, createContext, useEffect } from "react";
-import {authReducer} from "../reducers/authReducer";
+import { authReducer } from "../reducers/authReducer";
 
 export const AuthContext = createContext();
 
@@ -22,7 +22,7 @@ export const AuthContextProvider = ({ children }) => {
 
   return (
     <>
-      <AuthContext.Provider value={{state,dispatch}}>
+      <AuthContext.Provider value={contextValue}>
         {children}
       </AuthContext.Provider>
     </>

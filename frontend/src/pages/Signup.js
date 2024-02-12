@@ -13,7 +13,7 @@ const Signup = ({ isDeveloper }) => {
   const [role, setRole] = useState("");
   const { show, toggle } = useShowPassword();
   const { signUp, error, isLoading } = useSignup();
-  const {state} = useAuthContext()
+  const { state } = useAuthContext();
   const navigate = useNavigate();
 
   const handleEmailChange = (e) => {
@@ -30,15 +30,22 @@ const Signup = ({ isDeveloper }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log(state.user?.developer?._id)
     const body = isDeveloper
       ? { email: email, password: password, role: role }
       : { email: email, password: password };
-    await console.log(signUp(body, isDeveloper)); 
-    
+    await signUp(body, isDeveloper);
     setEmail("");
     setPassword("");
     setRole("");
-    navigate(`/developer/${state.user?.developer?._id}/`);
+    // navigate(`/developer/${state.user.developer._id}/`);
+    if (state.user && state.user.developer) {
+      navigate(`/developer/${state.user.developer._id}/`);
+    } else {
+      // Handle the case when state.user or state.user.developer is null
+      console.error("User or developer information is missing");
+      // You might want to redirect to a default route or handle this case appropriately
+    }
   };
 
   return (
@@ -109,7 +116,7 @@ const Signup = ({ isDeveloper }) => {
           )}
 
           <button type="submit" className="btn" disabled={isLoading}>
-            Signup
+          {isLoading ? "Signing up..." : "Signup"}
           </button>
           {error && <div>{error}</div>}
         </form>

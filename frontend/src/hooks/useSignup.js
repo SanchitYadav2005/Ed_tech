@@ -17,17 +17,13 @@ export const useSignup = () => {
 
     try {
       const token = localStorage.getItem("token");
-      if (!token) {
-        throw new Error("No token found");
-      }
-
-      const response = await axios.post(URL, body, {
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-      });
-console.log(response)
+      const headers = {
+        "Content-Type": "application/json",
+        ...(token && { Authorization: `Bearer ${token}` }),
+      };
+      
+      const response = await axios.post(URL, body, headers);
+      console.log(response);
       const newToken = response.data.token;
       localStorage.setItem("token", newToken);
 

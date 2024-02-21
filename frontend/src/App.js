@@ -16,6 +16,7 @@ function App() {
   const toggle = () => {
     toggleDeveloper((prevIsDeveloper) => !prevIsDeveloper);
   };
+
   console.log(state.user?.developer?._id);
   return (
     <React.Fragment>
@@ -35,10 +36,7 @@ function App() {
           element={<Signup isDeveloper={isDeveloper} />}
         />
         <Route path="/learner/signup" element={<Signup />} />
-        <Route
-          path={`/developer/${state.user?.developer?._id}/`}
-          element={<FilePage />}
-        />
+        <Route path={`/developer/:id/`} element={<FilePage />} />
         <Route path="/user/developer/dashboard" element={<UserDashboard />} />
       </Routes>
     </React.Fragment>

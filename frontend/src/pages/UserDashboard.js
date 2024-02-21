@@ -1,8 +1,10 @@
-
+import DashboardNav from "../components/DasboardNav";
 const UserDashboard = () => {
-    return ( <>
-    <h1>hello</h1>
-    </> );
-}
- 
+  return (
+    <>
+      <DashboardNav />
+    </>
+  );
+};
+
 export default UserDashboard;

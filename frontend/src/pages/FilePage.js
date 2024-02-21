@@ -2,12 +2,17 @@ import React, { useState, useEffect } from "react";
 import SecondNavbar from "../components/SecondNavbar";
 import "../styles/filePage.scss";
 import { useUpload } from "../hooks/useUpload";
+import { useParams } from "react-router-dom";
 
 const FilePage = () => {
+  let { id } = useParams();
+
   const [selectedFile, setSelectedFile] = useState(null);
   const [selectedFileName, setSelectedFileName] = useState("");
   const [isUploadDisabled, setIsUploadDisabled] = useState(true);
   const { upload, isLoading } = useUpload();
+
+  console.log(id);
 
   const handleChange = (e) => {
     const file = e.target.files[0];

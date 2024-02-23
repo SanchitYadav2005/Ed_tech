@@ -7,7 +7,6 @@ import FilePage from "./pages/FilePage";
 import { Routes, Route } from "react-router-dom";
 import { useState } from "react";
 import useAuthContext from "./hooks/useAuthContext";
-import UserDashboard from "./pages/UserDashboard";
 
 function App() {
   const [isDeveloper, toggleDeveloper] = useState(true);
@@ -16,7 +15,6 @@ function App() {
   const toggle = () => {
     toggleDeveloper((prevIsDeveloper) => !prevIsDeveloper);
   };
-
   console.log(state.user?.developer?._id);
   return (
     <React.Fragment>
@@ -37,7 +35,6 @@ function App() {
         />
         <Route path="/learner/signup" element={<Signup />} />
         <Route path={`/developer/:id/`} element={<FilePage />} />
-        <Route path="/user/developer/dashboard" element={<UserDashboard />} />
       </Routes>
     </React.Fragment>
   );

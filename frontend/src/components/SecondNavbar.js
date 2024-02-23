@@ -50,9 +50,7 @@ const SecondNavbar = () => {
         </li>
       </ul>
       <div className="button-container">
-        <Link className="link" to="/user/developer/dashboard">
-          {data.developer && data.developer.email}
-        </Link>
+        <div className="link">{data.developer && data.developer.email}</div>
         <button className="button" onClick={handleClick}>
           Logout
         </button>

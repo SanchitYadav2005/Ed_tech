@@ -9,7 +9,7 @@ export const useUpload = () => {
     formData.append("file", selectedFile);
 
     
-    setIsLoading(true);
+    setIsLoading(!isLoading);
 
     const config = {
       headers: {

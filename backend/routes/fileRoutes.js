@@ -6,10 +6,8 @@ const {
   getSingleFile,
   deleteFile,
 } = require("../controllers/fileController");
-const { setDeveloperId } = require("../middlware");
-router.use(setDeveloperId)
 
-router.post("/developer/file", uploadFile);
+router.post("/developer/:id/file", uploadFile);
 router.get("/files", getAllFiles);
 router.get("/:id/file", getSingleFile);
 router.delete("/:id/delete", deleteFile);

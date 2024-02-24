@@ -1,11 +1,14 @@
 const File = require("../schemas/fileSchema");
+const Developer = require("../schemas/developerSchema");
 
 module.exports.uploadFile = async (req, res) => {
   const { file } = req.body;
+  const { id } = req.params;
   try {
     const uploadedFile = await File.create({ file });
-    uploadedFile.author = req.developer._id;
-    res.status(200).json({ message: "pdf file uploaded", uploadedFile });
+    const developer = await Developer.findById(id);
+    uploadedFile.author = developer._id;
+    res.status(200).json({ message: "pdf file uploaded", uploadedFile});
   } catch (error) {
     let errorMessage = "Error uploading PDF file";
 

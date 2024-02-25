@@ -38,14 +38,14 @@ const Signup = ({ isDeveloper }) => {
     setEmail("");
     setPassword("");
     setRole("");
-    // navigate(`/developer/${state.user.developer._id}/`);
-    if (state.user && state.user.developer) {
-      navigate(`/developer/${state.user.developer._id}/`);
-    } else {
-      // Handle the case when state.user or state.user.developer is null
-      console.error("User or developer information is missing");
-      // You might want to redirect to a default route or handle this case appropriately
-    }
+    navigate(`/developer/${state.user.developer._id}/`);
+    // if (state.user && state.user.developer) {
+    //   navigate(`/developer/${state.user.developer._id}/`);
+    // } else {
+    //   // Handle the case when state.user or state.user.developer is null
+    //   console.error("User or developer information is missing");
+    //   // You might want to redirect to a default route or handle this case appropriately
+    // }
   };
 
   return (

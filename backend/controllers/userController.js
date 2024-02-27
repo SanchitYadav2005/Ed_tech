@@ -105,7 +105,7 @@ module.exports.updateLearner = async (req, res) => {
 //finding user
 // made this function because we are using it in two exported funtions
 async function findUser(id) {
-  const developerUser = await Developer.findById(id);
+  const developerUser = await Developer.findById(id).populate("author");
   const learnerUser = await Learner.findById(id);
   return { developerUser, learnerUser };
 }

@@ -34,7 +34,7 @@ const FilePage = () => {
     <>
       <SecondNavbar />
       <main className="main-container">
-        <form className="file-container">
+        <form className="file-container" encType="multipart/form-data">
           <label className="file-label" htmlFor="file">
             Choose file
           </label>

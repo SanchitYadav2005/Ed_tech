@@ -1,6 +1,7 @@
 const Developer = require("../schemas/developerSchema");
 const Learner = require("../schemas/learnerSchema");
 const jwt = require("jsonwebtoken");
+// const File = require("../schemas/fileSchema");
 
 const createToken = (_id) => {
   return jwt.sign({ _id }, process.env.SECRET, { expiresIn: "3d" });
@@ -23,6 +24,7 @@ module.exports.DeveloperLogin = async (req, res) => {
   const { email, password } = req.body;
   try {
     const developer = await Developer.login(email, password);
+    // const file = await File.findById
     const token = createToken(developer._id)
     res
       .status(200)
@@ -105,7 +107,7 @@ module.exports.updateLearner = async (req, res) => {
 //finding user
 // made this function because we are using it in two exported funtions
 async function findUser(id) {
-  const developerUser = await Developer.findById(id).populate("author");
+  const developerUser = await Developer.findById(id);
   const learnerUser = await Learner.findById(id);
   return { developerUser, learnerUser };
 }
@@ -115,7 +117,7 @@ module.exports.getUserById = async (req, res) => {
     let user = undefined;
     const { developerUser, learnerUser } = await findUser(id);
     if (developerUser) {
-      user = developerUser;
+      user = developerUser
     } else if (learnerUser) {
       user = learnerUser;
     } else {

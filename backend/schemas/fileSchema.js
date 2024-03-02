@@ -11,7 +11,7 @@ const fileSchema = new Schema({
       message: (props) => `${props.value} is not a valid PDF fiile`,
     },
   },
-  author: [{ type: Schema.Types.ObjectId, ref: "Developer" }],
+  author: { type: Schema.Types.ObjectId, ref: "Developer" },
 });
 
 fileSchema.post('findByIdAndDelete', async(doc)=>{

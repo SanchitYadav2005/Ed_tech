@@ -6,8 +6,6 @@ const {
   LearnerLogin,
   LearnerSignup,
   getUserById,
-  updateDeveloper,
-  updateLearner,
   deleteUser
 } = require("../controllers/userController");
 
@@ -16,8 +14,6 @@ router.post("/developer/login", DeveloperLogin);
 router.post("/learner/signup", LearnerSignup);
 router.post("/learner/login", LearnerLogin);
 router.get("/:id/dashboard", getUserById);
-router.put("/developer/:id/dashboard", updateDeveloper);
-router.put("/learner/:id/dashboard", updateLearner);
 router.post("/:id/delete", deleteUser)
 
 module.exports = router;

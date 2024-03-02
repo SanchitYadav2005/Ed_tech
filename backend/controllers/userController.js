@@ -33,31 +33,7 @@ module.exports.DeveloperLogin = async (req, res) => {
     res.status(401).json({ message: error.message });
   }
 };
-// updating developer infos
-module.exports.updateDeveloper = async (req, res) => {
-  const { id } = req.params;
-  try {
-    const developer = await Developer.findByIdAndUpdate(id, req.body);
-    if (!developer) {
-      return res.status(404).json({ message: "Developer not found" });
-    }
 
-    res
-      .status(200)
-      .json({ message: "Successfully updated details", developer });
-  } catch (error) {
-    console.error("Error updating developer:", error);
-
-    // Handle specific Mongoose validation error
-    if (error.name === "ValidationError") {
-      return res
-        .status(400)
-        .json({ message: "Validation error", error: error.message });
-    }
-
-    res.status(500).json({ message: "Internal server error" });
-  }
-};
 // login and signup for learner
 module.exports.LearnerSignup = async (req, res) => {
   try {
@@ -82,28 +58,6 @@ module.exports.LearnerLogin = async (req, res) => {
     res.status(401).json({ message: error.message });
   }
 };
-// updating values for learner
-module.exports.updateLearner = async (req, res) => {
-  const { id } = req.params;
-  try {
-    const learner = await Learner.findByIdAndUpdate(id, req.body);
-    if (!learner) {
-      return res.status(404).json({ message: "Learner not found" });
-    }
-    res.status(200).json({ message: "user found", learner });
-  } catch (error) {
-    console.error("Error updating developer:", error);
-
-    // Handle specific Mongoose validation error
-    if (error.name === "ValidationError") {
-      return res
-        .status(400)
-        .json({ message: "Validation error", error: error.message });
-    }
-
-    res.status(500).json({ message: "Internal server error" });
-  }
-};
 //finding user
 // made this function because we are using it in two exported funtions
 async function findUser(id) {
@@ -117,7 +71,7 @@ module.exports.getUserById = async (req, res) => {
     let user = undefined;
     const { developerUser, learnerUser } = await findUser(id);
     if (developerUser) {
-      user = developerUser
+      user = developerUser.populate("notes")
     } else if (learnerUser) {
       user = learnerUser;
     } else {

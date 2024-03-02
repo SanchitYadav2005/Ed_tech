@@ -9,6 +9,7 @@ module.exports.uploadFile = async (req, res) => {
     const developer = await Developer.findById(id);
     uploadedFile.author = developer;
     await uploadedFile.save();
+    
     res.status(200).json({ message: "pdf file uploaded", uploadedFile });
   } catch (error) {
     let errorMessage = "Error uploading PDF file";

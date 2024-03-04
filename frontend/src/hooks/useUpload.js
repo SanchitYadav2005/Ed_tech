@@ -37,6 +37,7 @@ export const useUpload = () => {
         config
       );
       console.log("File upload successful:", response.data);
+      localStorage.setItem("notes", JSON.stringify(response.data))
       console.log(isLoading);
     } catch (error) {
       console.error("Error uploading file:", error);

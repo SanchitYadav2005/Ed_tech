@@ -3,6 +3,7 @@ import SecondNavbar from "../components/SecondNavbar";
 import "../styles/filePage.scss";
 import { useUpload } from "../hooks/useUpload";
 import { useParams } from "react-router-dom";
+import { GetFileById } from "../hooks/getFileById";
 
 const FilePage = () => {
   let { id } = useParams();
@@ -10,7 +11,9 @@ const FilePage = () => {
   const [selectedFile, setSelectedFile] = useState(null);
   const [selectedFileName, setSelectedFileName] = useState("");
   const [isUploadDisabled, setIsUploadDisabled] = useState(true);
+  const [fileFromLocalStorage, setFile] = useState(null)
   const { upload, isLoading } = useUpload();
+  const {getFile, data} = GetFileById();
 
   console.log(id);
 
@@ -26,8 +29,28 @@ const FilePage = () => {
     console.log(selectedFile);
   }, [selectedFile]);
 
+  useEffect(() => {
+    const getFileData = async () => {
+      try {
+        const gotFileData = await localStorage.getItem("notes");
+        if (gotFileData) {
+          const fileData = JSON.parse(gotFileData);
+          setFile(fileData);
+          console.log(fileData)
+        }
+        
+      } catch (error) {
+        console.error("Error parsing user data:", error);
+      }
+    };
+
+    getFileData();
+  }, []);
+
   const handleSubmit = async () => {
     await upload(selectedFile);
+    await getFile(fileFromLocalStorage?.uploadedFile._id)
+    await console.log(data)
   };
 
   return (
@@ -57,7 +80,7 @@ const FilePage = () => {
           Selected File: <span className="span">{selectedFileName}</span>
         </p>
         <div className="uploaded-files-container">
-          <h3>You don't have any uploaded files yet</h3>
+          <h3>{fileFromLocalStorage?.uploadedFile._id}</h3>
         </div>
       </main>
     </>

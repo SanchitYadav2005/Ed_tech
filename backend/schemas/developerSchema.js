@@ -18,7 +18,6 @@ const developerSchema = new Schema({
     type: String,
     required: true,
   },
-  notes: { type: Schema.Types.ObjectId, ref: "File" },
 });
 
 // Correctly defining the signup method

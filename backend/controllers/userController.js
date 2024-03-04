@@ -71,7 +71,7 @@ module.exports.getUserById = async (req, res) => {
     let user = undefined;
     const { developerUser, learnerUser } = await findUser(id);
     if (developerUser) {
-      user = developerUser.populate("notes")
+      user = developerUser
     } else if (learnerUser) {
       user = learnerUser;
     } else {

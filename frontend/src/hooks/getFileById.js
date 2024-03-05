@@ -3,20 +3,28 @@ import axios from "axios";
 
 export const GetFileById = () => {
   const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(false)
 
   const getFile = async (id) => {
     try {
+      const config = {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      };
+      setLoading(true)
       const response = await axios.get(
-        `http://localhost:8080/api/user/${id}/file`
+        `http://localhost:8080/api/user/${id}/file`,
+        config
       );
-      console.log(response.data);
-      const jsonRes = JSON.parse(response.data);
-      setData(jsonRes);
+      setData(response.data);
       console.log(data)
     } catch (e) {
       console.log(e);
+    }finally{
+      setLoading(true)
     }
   };
 
-  return { getFile, data };
+  return { getFile, data, loading };
 };

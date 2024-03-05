@@ -36,7 +36,6 @@ const FilePage = () => {
         if (gotFileData) {
           const fileData = JSON.parse(gotFileData);
           setFile(fileData);
-          console.log(fileData)
         }
         
       } catch (error) {

@@ -1,14 +1,14 @@
 import SecondNavbar from "../components/SecondNavbar";
-import { Worker, Viewer } from '@react-pdf-viewer/core';
+import {Document, Page} from 'react-pdf';
 
 
 const Notes = () => {
   return (
     <>
       <SecondNavbar />
-      <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.4.120/build/pdf.worker.min.js">
-
-      </Worker>
+     <Document file="www.cs.cmu.edu/afs/cs.cmu.edu/user/gchen/www/download/java/LearnJava.pdf">
+      <Page pageNumber={2} />
+     </Document>
     </>
   );
 };

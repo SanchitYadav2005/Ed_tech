@@ -9,7 +9,7 @@ const {
 const multer = require("multer");
 const upload = multer({ dest: "uploads/" });
 
-router.post("/developer/:id/file", upload.single("file"), uploadFile);
+router.post("/developer/:id/file", upload.single('file'), uploadFile);
 router.get("/files", getAllFiles);
 router.get("/:id/file", getSingleFile);
 router.delete("/:id/delete", deleteFile);

@@ -11,17 +11,31 @@ const FilePage = () => {
   const [selectedFile, setSelectedFile] = useState(null);
   const [selectedFileName, setSelectedFileName] = useState("");
   const [isUploadDisabled, setIsUploadDisabled] = useState(true);
-  const [fileFromLocalStorage, setFile] = useState(null)
+  const [fileFromLocalStorage, setFile] = useState(null);
   const { upload, isLoading } = useUpload();
-  const {getFile, data} = GetFileById();
+  const { getFile, data } = GetFileById();
 
   console.log(id);
 
-  const handleChange = (e) => {
-    const file = e.target.files[0];
+  function convertToBase64(file) {
+    return new Promise((resolve, reject) => {
+      const fileReader = new FileReader();
+      fileReader.readAsDataURL(file);
+      fileReader.onload = () => {
+        resolve(fileReader.result);
+      };
+      fileReader.onerror = (error) => {
+        reject(error);
+      };
+    });
+  }
 
-    setSelectedFile(file);
-    setSelectedFileName(file ? file.name : "");
+  const handleChange = async (e) => {
+    const file = e.target.files[0];
+    
+    setSelectedFile(await convertToBase64(file));
+    console.log(selectedFile)
+    setSelectedFileName(file ? file.name : ""); 
     setIsUploadDisabled(!isUploadDisabled);
   };
 
@@ -37,7 +51,6 @@ const FilePage = () => {
           const fileData = JSON.parse(gotFileData);
           setFile(fileData);
         }
-        
       } catch (error) {
         console.error("Error parsing user data:", error);
       }
@@ -48,15 +61,14 @@ const FilePage = () => {
 
   const handleSubmit = async () => {
     await upload(selectedFile);
-    await getFile(fileFromLocalStorage?.uploadedFile._id)
-    await console.log(data)
+    await getFile(fileFromLocalStorage?.uploadedFile._id);
   };
 
   return (
     <>
       <SecondNavbar />
       <main className="main-container">
-        <form className="file-container" encType="multipart/form-data">
+        <form className="file-container" encType="multipart/from-data">
           <label className="file-label" htmlFor="file">
             Choose file
           </label>

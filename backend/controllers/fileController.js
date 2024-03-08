@@ -2,15 +2,19 @@ const File = require("../schemas/fileSchema");
 const Developer = require("../schemas/developerSchema");
 
 module.exports.uploadFile = async (req, res) => {
-  const { file } = req.file;
+  const { selectedFile }=req.body;
   const { id } = req.params;
   
   try {
-    const uploadedFile = await File.create({ file });
+    if(!req.file){
+      return res.status(400).json({ message: 'No file uploaded' });
+    }
+    const fileData = req.file.buffer
+    const uploadedFile = await File.create({file: fileData});
     const developer = await Developer.findById(id);
     uploadedFile.author = developer._id;
     await uploadedFile.save();
-    console.log(file)
+    console.log(req.file)
     console.log(req.body)
     res.status(200).json({ message: "pdf file uploaded", uploadedFile });
   } catch (error) {

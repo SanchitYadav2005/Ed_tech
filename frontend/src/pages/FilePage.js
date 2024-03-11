@@ -33,8 +33,7 @@ const FilePage = () => {
   const handleChange = async (e) => {
     const file = e.target.files[0];
     
-    setSelectedFile(await convertToBase64(file));
-    console.log(selectedFile)
+    setSelectedFile(file);
     setSelectedFileName(file ? file.name : ""); 
     setIsUploadDisabled(!isUploadDisabled);
   };

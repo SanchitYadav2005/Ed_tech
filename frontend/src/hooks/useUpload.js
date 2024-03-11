@@ -19,17 +19,22 @@ export const useUpload = () => {
   }, []);
 
   const upload = async (selectedFile) => {
-    const formData = new FormData();
-    formData.append("file", selectedFile);
+    // const formData = new FormData();
+    // formData.append("file", selectedFile);
     
 
-    setIsLoading((prevState) => !prevState);
+    setIsLoading(!isLoading);
 
-
-
+    const config = {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    };
     try {
       const response = await axios.post(
-        `http://localhost:8080/api/user/developer/${data.developer._id}/file`, {formData}
+        `http://localhost:8080/api/user/developer/${data.developer._id}/file`,
+        selectedFile,
+        config
       );
       console.log("File upload successful:", response.data);
       localStorage.setItem("notes", JSON.stringify(response.data));

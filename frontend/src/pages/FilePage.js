@@ -67,7 +67,7 @@ const FilePage = () => {
     <>
       <SecondNavbar />
       <main className="main-container">
-        <form className="file-container" encType="multipart/from-data">
+        <form className="file-container" >
           <label className="file-label" htmlFor="file">
             Choose file
           </label>
@@ -76,6 +76,7 @@ const FilePage = () => {
             className="file"
             id="file"
             onChange={handleChange}
+            name="selectedFile"
           />
         </form>
 

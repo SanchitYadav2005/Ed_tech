@@ -9,13 +9,12 @@ module.exports.uploadFile = async (req, res) => {
     if(!req.file){
       return res.status(400).json({ message: 'No file uploaded' });
     }
-    const fileData = req.file.buffer
-    const uploadedFile = await File.create({file: fileData});
+    const fileData = req.file.buffer;
+    const uploadedFile = await File.create(fileData);
     const developer = await Developer.findById(id);
     uploadedFile.author = developer._id;
     await uploadedFile.save();
     console.log(req.file)
-    console.log(req.body)
     res.status(200).json({ message: "pdf file uploaded", uploadedFile });
   } catch (error) {
     let errorMessage = "Error uploading PDF file";

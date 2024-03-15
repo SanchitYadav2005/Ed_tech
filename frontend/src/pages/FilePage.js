@@ -16,25 +16,11 @@ const FilePage = () => {
   const { getFile, data } = GetFileById();
 
   console.log(id);
-
-  function convertToBase64(file) {
-    return new Promise((resolve, reject) => {
-      const fileReader = new FileReader();
-      fileReader.readAsDataURL(file);
-      fileReader.onload = () => {
-        resolve(fileReader.result);
-      };
-      fileReader.onerror = (error) => {
-        reject(error);
-      };
-    });
-  }
-
   const handleChange = async (e) => {
     const file = e.target.files[0];
-    
+
     setSelectedFile(file);
-    setSelectedFileName(file ? file.name : ""); 
+    setSelectedFileName(file ? file.name : "");
     setIsUploadDisabled(!isUploadDisabled);
   };
 
@@ -67,7 +53,7 @@ const FilePage = () => {
     <>
       <SecondNavbar />
       <main className="main-container">
-        <form className="file-container" >
+        <form className="file-container">
           <label className="file-label" htmlFor="file">
             Choose file
           </label>

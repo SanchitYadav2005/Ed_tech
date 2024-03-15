@@ -76,7 +76,6 @@ const FilePage = () => {
             className="file"
             id="file"
             onChange={handleChange}
-            name="selectedFile"
           />
         </form>
 

@@ -2,20 +2,32 @@ const File = require("../schemas/fileSchema");
 const Developer = require("../schemas/developerSchema");
 
 module.exports.uploadFile = async (req, res) => {
-  const { selectedFile }=req.body;
   const { id } = req.params;
-  
+
   try {
-    if(!req.file){
-      return res.status(400).json({ message: 'No file uploaded' });
+    if (!req.file) {
+      return res.status(400).json({ message: "No file uploaded" });
     }
-    const fileData = req.file.buffer;
-    const uploadedFile = await File.create(fileData);
+
+    // Retrieve file data from req.file
+    const fileData = req.file;
+
+    // Find the developer by id
     const developer = await Developer.findById(id);
-    uploadedFile.author = developer._id;
+    if (!developer) {
+      return res.status(404).json({ message: "Developer not found" });
+    }
+
+    // Create a new file document and assign fileData and author
+    const uploadedFile = new File({
+      file: fileData,
+      author: developer._id,
+    });
+
+    // Save the file document
     await uploadedFile.save();
-    console.log(req.file)
-    res.status(200).json({ message: "pdf file uploaded", uploadedFile });
+
+    res.status(200).json({ message: "PDF file uploaded", uploadedFile });
   } catch (error) {
     let errorMessage = "Error uploading PDF file";
 
@@ -34,7 +46,6 @@ module.exports.uploadFile = async (req, res) => {
     res.status(500).json({ message: errorMessage });
   }
 };
-
 module.exports.getAllFiles = async (req, res) => {
   // this find function will fetch all the abliable files
   try {

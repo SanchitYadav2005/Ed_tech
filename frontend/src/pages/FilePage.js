@@ -46,7 +46,9 @@ const FilePage = () => {
 
   const handleSubmit = async () => {
     await upload(selectedFile);
-    await getFile(fileFromLocalStorage?.uploadedFile._id);
+    if (fileFromLocalStorage) {
+      await getFile(fileFromLocalStorage?.uploadedFile._id);
+    }
   };
 
   return (

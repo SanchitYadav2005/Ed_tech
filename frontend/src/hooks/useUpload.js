@@ -34,6 +34,7 @@ export const useUpload = () => {
 
       if (res) {
         console.log(res.data);
+        localStorage.setItem("notes", JSON.stringify(res.data))
       } else {
         console.log("Not able to post the file");
       }

@@ -36,6 +36,7 @@ const FilePage = () => {
           const fileData = JSON.parse(gotFileData);
           setFile(fileData);
         }
+        
       } catch (error) {
         console.error("Error parsing user data:", error);
       }
@@ -78,7 +79,7 @@ const FilePage = () => {
           Selected File: <span className="span">{selectedFileName}</span>
         </p>
         <div className="uploaded-files-container">
-          <h3>{fileFromLocalStorage?.uploadedFile._id}</h3>
+          <h3>{fileFromLocalStorage?.uploadedFile.file.originalname}</h3>
         </div>
       </main>
     </>

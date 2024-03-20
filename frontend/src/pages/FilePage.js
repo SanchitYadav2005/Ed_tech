@@ -51,6 +51,7 @@ const FilePage = () => {
       await getFile(fileFromLocalStorage?.uploadedFile._id);
     }
   };
+  const bufferData = fileFromLocalStorage?.uploadedFile.file?.buffer.data.toString()
 
   return (
     <>
@@ -80,6 +81,7 @@ const FilePage = () => {
         </p>
         <div className="uploaded-files-container">
           <h3>{fileFromLocalStorage?.uploadedFile.file.originalname}</h3>
+          <h3>{bufferData}</h3>
         </div>
       </main>
     </>

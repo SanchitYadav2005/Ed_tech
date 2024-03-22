@@ -1,6 +1,7 @@
 const File = require("../schemas/fileSchema");
 const Developer = require("../schemas/developerSchema");
 
+
 module.exports.uploadFile = async (req, res) => {
   const { id } = req.params;
 
@@ -18,6 +19,9 @@ module.exports.uploadFile = async (req, res) => {
       return res.status(404).json({ message: "Developer not found" });
     }
 
+    // Convert file buffer to base64
+    const base64File = fileData.buffer.toString('base64');
+
     // Create a new file document and assign fileData and author
     const uploadedFile = new File({
       file: fileData,
@@ -27,7 +31,7 @@ module.exports.uploadFile = async (req, res) => {
     // Save the file document
     await uploadedFile.save();
 
-    res.status(200).json({ message: "PDF file uploaded", uploadedFile });
+    res.status(200).json({ message: "PDF file uploaded", uploadedFile, base64File });
   } catch (error) {
     let errorMessage = "Error uploading PDF file";
 
@@ -42,10 +46,10 @@ module.exports.uploadFile = async (req, res) => {
       errorMessage = "Unexpected error occurred";
       console.error(error);
     }
-
     res.status(500).json({ message: errorMessage });
   }
-};
+}
+
 module.exports.getAllFiles = async (req, res) => {
   // this find function will fetch all the abliable files
   try {

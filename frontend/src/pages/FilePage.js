@@ -36,7 +36,6 @@ const FilePage = () => {
           const fileData = JSON.parse(gotFileData);
           setFile(fileData);
         }
-        
       } catch (error) {
         console.error("Error parsing user data:", error);
       }
@@ -51,7 +50,6 @@ const FilePage = () => {
       await getFile(fileFromLocalStorage?.uploadedFile._id);
     }
   };
-  const bufferData = fileFromLocalStorage?.uploadedFile.file?.buffer.data.toString()
 
   return (
     <>
@@ -80,8 +78,23 @@ const FilePage = () => {
           Selected File: <span className="span">{selectedFileName}</span>
         </p>
         <div className="uploaded-files-container">
-          <h3>{fileFromLocalStorage?.uploadedFile.file.originalname}</h3>
-          <h3>{bufferData}</h3>
+          {fileFromLocalStorage && (
+            <>
+              <h3>{fileFromLocalStorage.uploadedFile.file.originalname}</h3>
+              {/* Display PDF */}
+              <object
+                data={`data:application/pdf;base64,${fileFromLocalStorage.base64File}`}
+                type="application/pdf"
+                width="100%"
+                height="600px"
+              >
+                <embed
+                  src={`data:application/pdf;base64,${fileFromLocalStorage.base64File}`}
+                  type="application/pdf"
+                />
+              </object>
+            </>
+          )}
         </div>
       </main>
     </>

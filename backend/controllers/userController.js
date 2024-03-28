@@ -12,6 +12,8 @@ module.exports.DeveloperSignup = async (req, res) => {
   try {
     const developer = await Developer.signup(email, password, role);
     const token = createToken(developer._id);
+    console.log(developer)
+    console.log(token)
     res
       .status(200)
       .json({ message: "created a user as developer", developer, token });
@@ -71,7 +73,7 @@ module.exports.getUserById = async (req, res) => {
     let user = undefined;
     const { developerUser, learnerUser } = await findUser(id);
     if (developerUser) {
-      user = developerUser
+      user = developerUser.populate("files")
     } else if (learnerUser) {
       user = learnerUser;
     } else {

@@ -15,10 +15,10 @@ const Diversion = ({toggle}) => {
             className="developer-icon"
           />
           <h3>Sign up or Login as developer</h3>
-          <Link to="/developer/signup" className="signup" onSubmit={toggle}>
+          <Link to="/developer/signup" className="signup" onClick={toggle}>
             signup
           </Link>
-          <Link to="/developer/login" className="login" onSubmit={toggle}>
+          <Link to="/developer/login" className="login" onClick={toggle}>
             login
           </Link>
         </div>

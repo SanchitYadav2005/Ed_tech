@@ -34,7 +34,9 @@ const Signup = ({ isDeveloper }) => {
     const body = isDeveloper
       ? { email: email, password: password, role: role }
       : { email: email, password: password };
-    await signUp(body, isDeveloper);
+      console.log(body)
+      console.log(isDeveloper)
+    console.log(await signUp(body, isDeveloper))
     setEmail("");
     setPassword("");
     setRole("");

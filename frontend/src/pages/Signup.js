@@ -30,13 +30,12 @@ const Signup = ({ isDeveloper }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(state.user?.developer?._id)
+    console.log(state.user?.developer?._id);
     const body = isDeveloper
       ? { email: email, password: password, role: role }
       : { email: email, password: password };
-      console.log(body)
-      console.log(isDeveloper)
-    console.log(await signUp(body, isDeveloper))
+
+    await signUp(body, isDeveloper);
     setEmail("");
     setPassword("");
     setRole("");
@@ -118,7 +117,7 @@ const Signup = ({ isDeveloper }) => {
           )}
 
           <button type="submit" className="btn" disabled={isLoading}>
-          {isLoading ? "Signing up..." : "Signup"}
+            {isLoading ? "Signing up..." : "Signup"}
           </button>
           {error && <div>{error}</div>}
         </form>

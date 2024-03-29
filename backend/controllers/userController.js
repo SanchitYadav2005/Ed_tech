@@ -12,8 +12,6 @@ module.exports.DeveloperSignup = async (req, res) => {
   try {
     const developer = await Developer.signup(email, password, role);
     const token = createToken(developer._id);
-    console.log(developer)
-    console.log(token)
     res
       .status(200)
       .json({ message: "created a user as developer", developer, token });

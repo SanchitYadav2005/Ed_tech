@@ -3,6 +3,9 @@ const Schema = mongoose.Schema;
 
 const fileSchema = new Schema({
   file: {},
+  link:{
+    type: String
+  },
   author: { type: Schema.Types.ObjectId, ref: "Developer" },
 });
 

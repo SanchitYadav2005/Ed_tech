@@ -9,6 +9,7 @@ const FilePage = () => {
   let { id } = useParams();
 
   const [selectedFile, setSelectedFile] = useState(null);
+  const [link, setLink] = useState(null);
   const [selectedFileName, setSelectedFileName] = useState("");
   const [isUploadDisabled, setIsUploadDisabled] = useState(true);
   const [fileFromLocalStorage, setFile] = useState(null);
@@ -22,6 +23,9 @@ const FilePage = () => {
     setSelectedFile(file);
     setSelectedFileName(file ? file.name : "");
     setIsUploadDisabled(!isUploadDisabled);
+  };
+  const handleLinkChange = async (e) => {
+    setLink(e.target.value);
   };
 
   useEffect(() => {
@@ -55,7 +59,7 @@ const FilePage = () => {
     <>
       <SecondNavbar />
       <main className="main-container">
-        <form className="file-container">
+        <div className="file-container">
           <label className="file-label" htmlFor="file">
             Choose file
           </label>
@@ -65,7 +69,17 @@ const FilePage = () => {
             id="file"
             onChange={handleChange}
           />
-        </form>
+           <span className="span">{selectedFileName}</span>
+        </div>
+        
+        <input
+          type="text"
+          className="link-upload"
+          id="link"
+          onChange={handleLinkChange}
+          // value={link}
+          placeholder="upload your link here"
+        />
 
         <button
           className="upload-btn"
@@ -74,9 +88,7 @@ const FilePage = () => {
         >
           {isLoading ? "Uploading..." : "Upload"}
         </button>
-        <p className="selected-file">
-          Selected File: <span className="span">{selectedFileName}</span>
-        </p>
+        
         <div className="uploaded-files-container">
           {fileFromLocalStorage ? (
             <>

@@ -61,11 +61,22 @@ $border_color: #001219;
   -webkit-box-shadow: 10px 10px 5px 0px rgba(65, 90, 119, 0.75);
   -moz-box-shadow: 10px 10px 5px 0px rgba(65, 90, 119, 0.75);
 }
-.selected-file {
-  font-size: 1.2em;
-  font-weight: bolder;
-  margin-left: 34%;
+
   .span {
     font-weight: lighter;
+    margin-left: 2em;
+    overflow: hidden;
   }
+
+.link-upload {
+  display: block;
+  margin-left: 34%;
+  margin-top: 2em;
+  padding: 15px 178px 15px 21px;
+  border: 1.2px solid black;
+  border-radius: 3px;
+  font-size: 1.2em;
+}
+*:focus {
+  outline: none;
 }

@@ -78,7 +78,7 @@ const FilePage = () => {
           Selected File: <span className="span">{selectedFileName}</span>
         </p>
         <div className="uploaded-files-container">
-          {fileFromLocalStorage && (
+          {fileFromLocalStorage ? (
             <>
               <h3>{fileFromLocalStorage.uploadedFile.file.originalname}</h3>
               {/* Display PDF */}
@@ -94,6 +94,8 @@ const FilePage = () => {
                 />
               </object>
             </>
+          ) : (
+            <h3>No files uploaded</h3>
           )}
         </div>
       </main>

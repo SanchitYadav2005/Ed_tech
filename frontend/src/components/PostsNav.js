@@ -1,4 +1,6 @@
-import '../styles/postNav.scss';
+import AutoComplete from "./AutoComplete";
+import "../styles/postNav.scss";
+import SearchIcon from "@mui/icons-material/Search";
 
 const PostNav = () => {
   return (
@@ -21,7 +23,15 @@ const PostNav = () => {
             </a>
           </li>
         </ul>
+       
+        <div className="box">
+        <AutoComplete />
+        <button className="search-btn">
+        <SearchIcon />
+      </button>
+        </div>
       </nav>
+     
     </>
   );
 };

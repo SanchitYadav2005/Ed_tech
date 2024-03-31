@@ -1,29 +1,29 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import SecondNavbar from "../components/SecondNavbar";
+import PostsNav from "../components/PostsNav";
 import pdfFile from "../assets/file.pdf";
 
 const Notes = () => {
-  const [data, setData] = useState(null);
+  // const [data, setData] = useState(null);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const response = await axios.get("http://localhost:8080/api/user/files");
-      if (response) {
-        setData(response.data);
-      }
-    };
-    fetchData()
-  });
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     const response = await axios.get("http://localhost:8080/api/user/files");
+  //     if (response) {
+  //       setData(response.data);
+  //     }
+  //   };
+  //   fetchData()
+  // });
 
   return (
     <>
-      <SecondNavbar />
+      {/* <SecondNavbar />
       {/* <object data={pdfFile} width="500" height="500" aria-label="pdf file"/> */}
-    {data.map(e=>(
+    {/* {data.map(e=>(
 <embed src={pdfFile} width="500px" height="500px" />
-    ))}
-      
+    ))} */} 
+      <PostsNav/>
     </>
   );
 };

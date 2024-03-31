@@ -15,12 +15,13 @@ export const useUpload = () => {
     }
   }, []);
 
-  const upload = async (selectedFile) => {
+  const upload = async (selectedFile, uploadedLink) => {
     try {
       setIsLoading(true); // Set loading state to true before the request
 
       const formData = new FormData();
       formData.append("file", selectedFile); // Use "file" or the appropriate field name expected by the server
+      formData.append("link", uploadedLink);
 
       const res = await axios.post(
         `http://localhost:8080/api/user/developer/${userData.developer._id}/file`,

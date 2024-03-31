@@ -25,6 +25,7 @@ module.exports.uploadFile = async (req, res) => {
     // Create a new file document and assign fileData and author
     const uploadedFile = new File({
       file: fileData,
+      link: req.body.link,
       author: developer._id,
     });
 

@@ -5,6 +5,7 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import FilePage from "./pages/FilePage";
 import Notes from "./pages/Notes";
+import Videos from "./pages/Videos";
 import { Routes, Route } from "react-router-dom";
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
         <Route path="/learner/signup" element={<Signup />} />
         <Route path={`/developer/:id`} element={<FilePage />} />
         <Route path="/notes" element={<Notes />} />
+        <Route path="/videos" element={<Videos />} />
       </Routes>
     </React.Fragment>
   );

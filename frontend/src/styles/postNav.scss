@@ -1,0 +1,32 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter&family=Roboto+Mono&display=swap");
+$font: "Roboto Mono", monospace;
+$font_color: #f1faee;
+$background_color: #001219;
+$hover_color: #ca4246;
+$border_color: #264653;
+
+.postsNav{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: $background_color;
+    padding: 1em 0.1em 1em 0.1em;
+    .container{
+        list-style: none;
+        .nav-item{
+            .nav-links{
+                text-decoration: none;
+                margin-left: 2em;
+                font-size: 1.5rem;
+                color: $font_color;
+                transition: all 0.3s;
+            }
+            .nav-links:hover{
+                color: $hover_color;
+            }
+        }
+        .search-container{
+            
+        }
+    }
+}

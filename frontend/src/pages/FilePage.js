@@ -49,7 +49,7 @@ const FilePage = () => {
   }, []);
 
   const handleSubmit = async () => {
-    await upload(selectedFile);
+    await upload(selectedFile, link);
     if (fileFromLocalStorage) {
       await getFile(fileFromLocalStorage?.uploadedFile._id);
     }
@@ -77,7 +77,6 @@ const FilePage = () => {
           className="link-upload"
           id="link"
           onChange={handleLinkChange}
-          // value={link}
           placeholder="upload your link here"
         />
 

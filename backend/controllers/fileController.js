@@ -65,7 +65,25 @@ module.exports.getAllFiles = async (req, res) => {
     res.status(401).json({ message: "error!" });
   }
 };
-
+//get only link
+module.exports.getAllLinks = async(req, res)=>{
+  try{
+    const files = await File.find({}).populate("author");
+    if(files.length ===0){
+      res.status(404).json({message: "No files found!"})
+    }else{
+      const links = files.map(file=> file.link)
+      const videoIds = links.map((link)=>{
+        const index = link.indexOf("v=")
+        return index !== -1 ? link.substring(index + 2) : null;
+      })
+      res.status(200).json({message: "all links found!", links, videoIds})
+    }
+  }catch (error) {
+    console.log(error);
+    res.status(401).json({ message: "error!" });
+  }
+}
 // getting only one file on click
 
 module.exports.getSingleFile = async (req, res) => {

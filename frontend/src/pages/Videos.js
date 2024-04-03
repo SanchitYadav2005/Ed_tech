@@ -1,17 +1,27 @@
 import PostNav from "../components/PostsNav";
+import axios from "axios";
 import { MutatingDots } from "react-loader-spinner";
-import { useEffect } from "react";
+import { useState,useEffect } from "react";
 import { useGetAllLinks } from "../hooks/getAllLinks";
 import "../styles/videos.scss";
 
 const Videos = () => {
-  // const [allData, setAllData] = useState(null);
+  const [videoData, setVideoData] = useState(null);
   const { isLoading, data } = useGetAllLinks();
-
+  const videoId = data?.videoIds?.map(id=>id);
   useEffect(() => {
-    console.log(data?.links?.map((link) => link));
+    console.log(videoId);
+    const getVideoData = async () => {
+      const res = await axios.get(`https://www.googleapis.com/youtube/v3/videos?id=${videoId}&
+      key=AIzaSyBad8gYJi8K3_2iR2QP1BQOFqXR-v2-tTM&part=snippet,contentDetails,statistics`)
+      if(res){
+        setVideoData(res.data)
+        console.log(videoData)
+      }
+    }
+    getVideoData();
     console.log(isLoading);
-  });
+  },[]);
   return (
     <>
       <PostNav />

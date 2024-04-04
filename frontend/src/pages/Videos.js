@@ -20,8 +20,7 @@ const Videos = () => {
       }
     }
     getVideoData();
-    console.log(isLoading);
-  },[]);
+  },[videoId, videoData]);
   return (
     <>
       <PostNav />

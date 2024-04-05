@@ -1,0 +1,22 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter&family=Roboto+Mono&display=swap");
+$backgrount_color: #f34a23;
+$font_color: #f1faee;
+$font_family: "Roboto Mono", monospace;
+.tag {
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  font-size: 0.5em;
+  background-color: $backgrount_color;
+  width: fit-content;
+  margin: 0.5em;
+  border-radius: 10px;
+  color: $font_color;
+  font-family: $font_family;
+  padding: 1em 2em 1em 2em;
+  cursor: pointer;
+  transition: 0.2s box-shadow;
+}
+.tag:hover{
+    box-shadow: 0px 0px 19px -8px $backgrount_color;
+}

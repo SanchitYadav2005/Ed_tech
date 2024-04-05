@@ -6,21 +6,26 @@ import { useGetAllLinks } from "../hooks/getAllLinks";
 import "../styles/videos.scss";
 
 const Videos = () => {
-  const [videoData, setVideoData] = useState(null);
-  const { isLoading, data } = useGetAllLinks();
-  const videoId = data?.videoIds?.map(id=>id);
-  useEffect(() => {
-    console.log(videoId);
+  const [videoData, setVideoData] = useState([]);
+const { isLoading, data } = useGetAllLinks();
+const videoIds = data?.videoIds;
+
+useEffect(() => {
     const getVideoData = async () => {
-      const res = await axios.get(`https://www.googleapis.com/youtube/v3/videos?id=${videoId}&
-      key=AIzaSyBad8gYJi8K3_2iR2QP1BQOFqXR-v2-tTM&part=snippet,contentDetails,statistics`)
-      if(res){
-        setVideoData(res.data)
-        console.log(videoData)
-      }
+        if (videoIds && videoIds.length > 0) {
+            const promises = videoIds.map(async (id) => {
+                const res = await axios.get(`https://www.googleapis.com/youtube/v3/videos?id=${id}&key=AIzaSyBad8gYJi8K3_2iR2QP1BQOFqXR-v2-tTM&part=snippet,contentDetails,statistics`);
+                return res.data;
+            });
+            const responseData = await Promise.all(promises);
+            setVideoData(responseData);
+        }
     }
     getVideoData();
-  },[videoId, videoData]);
+}, [videoIds]);
+
+console.log(videoData);
+
   return (
     <>
       <PostNav />
@@ -40,6 +45,7 @@ const Videos = () => {
         </div>
       ) : (
         <h1>{data?.links?.map((link) => link)}</h1>
+        
       )}
     </>
   );

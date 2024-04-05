@@ -39,7 +39,7 @@ const Videos = () => {
             {videoData?.map((video) => (
               <SingleVideo
                 title={video.items[0].snippet.title}
-                description={video.items[0].snippet.description}
+                tags={video.items[0].snippet.tags}
                 channelName={video.items[0].snippet.channelTitle}
                 thumbnail={video.items[0].snippet.thumbnails.default.url}
                 likeCount={video.items[0].statistics.likeCount}

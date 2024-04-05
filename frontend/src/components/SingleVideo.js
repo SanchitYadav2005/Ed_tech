@@ -15,7 +15,7 @@ const SingleVideo = ({
   return (
     <>
       <div className="card">
-        <a href={link} className="video-link">
+        <a href={link} className="video-link" target="_blank" rel="noreferrer">
           <img className="card-img" src={thumbnail} alt={title} />
         </a>
         <div className="card-heading">
@@ -26,11 +26,11 @@ const SingleVideo = ({
           <SingleTag tags={tags} />
         </div>
         <div className="counts">
-          <div className="views">
+          <div className="bothCount" id="views">
             <RemoveRedEyeIcon className="eye-icon" />
             <span className="number">{viewsCount}</span>
           </div>
-          <div className="likes">
+          <div className="bothCount" id="likes">
             <ThumbUpIcon className="thumb-icon" />
             <span className="number">{likeCount}</span>
           </div>

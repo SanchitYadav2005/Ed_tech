@@ -1,6 +1,9 @@
+import SingleTag from './SingleTag';
+import "../styles/video.scss"
+
 const SingleVideo = ({
   title,
-  tag,
+  tags,
   channelName,
   thumbnail,
   likeCount,
@@ -17,8 +20,8 @@ const SingleVideo = ({
           <h3>{title}</h3>
           <span>{channelName}</span>
         </div>
-        <div className="description">
-          <p>{tag}</p>
+        <div className="tags">
+          <SingleTag tags={tags}/>
         </div>
       </div>
       {/* <h1>{title}</h1>

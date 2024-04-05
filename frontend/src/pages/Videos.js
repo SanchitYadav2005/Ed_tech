@@ -35,19 +35,17 @@ const Videos = () => {
         <Loader />
       ) : (
         <>
-          <h2>
-            {videoData?.map((video) => (
-              <SingleVideo
-                title={video.items[0].snippet.title}
-                tags={video.items[0].snippet.tags}
-                channelName={video.items[0].snippet.channelTitle}
-                thumbnail={video.items[0].snippet.thumbnails.default.url}
-                likeCount={video.items[0].statistics.likeCount}
-                viewsCount={video.items[0].statistics.viewCount}
-                link={link}
-              />
-            ))}
-          </h2>
+          {videoData?.map((video) => (
+            <SingleVideo
+              title={video.items[0].snippet.title}
+              tags={video.items[0].snippet.tags}
+              channelName={video.items[0].snippet.channelTitle}
+              thumbnail={video.items[0].snippet.thumbnails.standard.url}
+              likeCount={video.items[0].statistics.likeCount}
+              viewsCount={video.items[0].statistics.viewCount}
+              link={link}
+            />
+          ))}
         </>
       )}
     </>

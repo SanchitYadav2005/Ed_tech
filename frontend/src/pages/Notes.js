@@ -4,8 +4,6 @@ import Loader from "../components/Loader";
 
 const Notes = () => {
   const { data, isLoading } = useGetAllFiles();
-  console.log(isLoading);
-
   return (
     <>
       <PostsNav />

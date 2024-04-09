@@ -1,29 +1,30 @@
-import { useState, useEffect } from "react";
-import axios from "axios";
+import { useGetAllFiles } from "../hooks/getAllFiles";
 import PostsNav from "../components/PostsNav";
-import pdfFile from "../assets/file.pdf";
+import Loader from "../components/Loader";
 
 const Notes = () => {
-  // const [data, setData] = useState(null);
-
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     const response = await axios.get("http://localhost:8080/api/user/files");
-  //     if (response) {
-  //       setData(response.data);
-  //     }
-  //   };
-  //   fetchData()
-  // });
+  const { data, isLoading } = useGetAllFiles();
+  console.log(isLoading);
 
   return (
     <>
-      {/* <SecondNavbar />
-      {/* <object data={pdfFile} width="500" height="500" aria-label="pdf file"/> */}
-    {/* {data.map(e=>(
-<embed src={pdfFile} width="500px" height="500px" />
-    ))} */} 
-      <PostsNav/>
+      <PostsNav />
+      {isLoading ? <Loader /> : (
+        data?.files?.map((file) => (
+          <object
+            data={`data:application/pdf;base64,${file.base64}`}
+            type="application/pdf"
+            width="100%"
+            height="600px"
+            key={file.id} 
+          >
+            <embed
+              src={`data:application/pdf;base64,${file.base64}`}
+              type="application/pdf"
+            />
+          </object>
+        ))
+      )}
     </>
   );
 };

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import SecondNavbar from "../components/SecondNavbar";
+import SinglePost from "../components/SinglePost";
 import "../styles/filePage.scss";
 import { useUpload } from "../hooks/useUpload";
 import { useParams } from "react-router-dom";
@@ -69,9 +70,9 @@ const FilePage = () => {
             id="file"
             onChange={handleChange}
           />
-           <span className="span">{selectedFileName}</span>
+          <span className="span">{selectedFileName}</span>
         </div>
-        
+
         <input
           type="text"
           className="link-upload"
@@ -87,23 +88,16 @@ const FilePage = () => {
         >
           {isLoading ? "Uploading..." : "Upload"}
         </button>
-        
+
         <div className="uploaded-files-container">
           {fileFromLocalStorage ? (
             <>
-              <h3>{fileFromLocalStorage.uploadedFile.file.originalname}</h3>
+              <h3 className="filename">{fileFromLocalStorage.uploadedFile.file.originalname}</h3>
               {/* Display PDF */}
-              <object
-                data={`data:application/pdf;base64,${fileFromLocalStorage.base64File}`}
-                type="application/pdf"
-                width="100%"
-                height="600px"
-              >
-                <embed
-                  src={`data:application/pdf;base64,${fileFromLocalStorage.base64File}`}
-                  type="application/pdf"
-                />
-              </object>
+              <SinglePost
+                base64={fileFromLocalStorage.base64File}
+                id={fileFromLocalStorage.uploadedFile._id}
+              />
             </>
           ) : (
             <h3>No files uploaded</h3>

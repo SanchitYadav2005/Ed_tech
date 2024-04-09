@@ -18,7 +18,6 @@ export const AuthContextProvider = ({ children }) => {
     state,
     dispatch,
   };
-  console.log("AuthContext state: ", state);
 
   return (
     <>

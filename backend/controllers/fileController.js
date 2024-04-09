@@ -25,6 +25,7 @@ module.exports.uploadFile = async (req, res) => {
     // Create a new file document and assign fileData and author
     const uploadedFile = new File({
       file: fileData,
+      base64: base64File,
       link: req.body.link,
       author: developer._id,
     });
@@ -32,7 +33,7 @@ module.exports.uploadFile = async (req, res) => {
     // Save the file document
     await uploadedFile.save();
 
-    res.status(200).json({ message: "PDF file uploaded", uploadedFile, base64File });
+    res.status(200).json({ message: "PDF file uploaded", uploadedFile});
   } catch (error) {
     let errorMessage = "Error uploading PDF file";
 

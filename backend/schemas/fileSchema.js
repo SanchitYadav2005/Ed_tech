@@ -3,6 +3,9 @@ const Schema = mongoose.Schema;
 
 const fileSchema = new Schema({
   file: {},
+  base64:{
+    type: String
+  },
   link:{
     type: String
   },

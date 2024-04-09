@@ -1,3 +1,5 @@
+import '../styles/post.scss'
+
 const SinglePost = ({ base64, id }) => {
   return (
     <>

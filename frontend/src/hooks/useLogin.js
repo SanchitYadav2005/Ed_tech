@@ -30,7 +30,6 @@ export const useLogin = () => {
         },
         { headers }
       );
-      console.log(response);
       const newToken = response.data.token;
       localStorage.setItem("token", newToken);
 

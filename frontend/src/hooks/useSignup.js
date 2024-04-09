@@ -23,14 +23,12 @@ export const useSignup = () => {
       };
 
       const response = await axios.post(URL, body, headers);
-      console.log(response);
       const newToken = response.data.token;
       localStorage.setItem("token", newToken);
 
       const jsonData = response.data;
       localStorage.setItem("user", JSON.stringify(jsonData));
       dispatch({ type: "LOGIN", payload: jsonData });
-      console.log(newToken)
 
       setIsLoading(false);
     } catch (error) {

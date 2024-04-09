@@ -18,7 +18,6 @@ export const GetFileById = () => {
         config
       );
       setData(response.data);
-      console.log(data)
     } catch (e) {
       console.log(e);
     }finally{

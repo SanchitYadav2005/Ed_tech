@@ -44,6 +44,7 @@ const Videos = () => {
               likeCount={video.items[0].statistics.likeCount}
               viewsCount={video.items[0].statistics.viewCount}
               link={link}
+              key={video.items[0].id}
             />
           ))}
         </>

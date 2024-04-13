@@ -51,9 +51,14 @@ $font: "Roboto Mono", monospace;
         background-position: -9em 1em;
       }
     }
-    background: #0f2027;
-    background: -webkit-linear-gradient(to right, #2c5364, #203a43, #0f2027);
-    background: linear-gradient(to right, #2c5364, #203a43, #0f2027);
+    background-image: linear-gradient(
+      to right bottom,
+      #fb5607,
+      #d01761,
+      #723078,
+      #132c54,
+      #001219
+    );
     text-align: center;
     width: 60%;
     height: 549px;
@@ -84,9 +89,14 @@ $font: "Roboto Mono", monospace;
     }
   }
   .form {
-    background: #0f2027;
-    background: -webkit-linear-gradient(to left, #2c5364, #203a43, #0f2027);
-    background: linear-gradient(to left, #2c5364, #203a43, #0f2027);
+    background-image: linear-gradient(
+      to left bottom,
+      #fb5607,
+      #d01761,
+      #723078,
+      #132c54,
+      #001219
+    );
     width: 40%;
     img {
       margin-left: 30%;

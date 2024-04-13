@@ -67,37 +67,34 @@ const Home = () => {
         </header>
         <Fade>
           <main className="about-section">
-            <Slide direction="right">
+            <Slide direction="down">
               <div className="container">
                 <img src={serverResponse.notes} alt="notes" />
                 <p className="notes-para">{serverResponse.notesText}</p>
               </div>
             </Slide>
-            <div className="contain-others">
-              <div>
-                <img
-                  src={serverResponse.videos}
-                  alt="best videos"
-                  style={{ height: "265px" }}
-                />
-                <p>{serverResponse.videosText}</p>
+            <Slide direction="down">
+              <div className="container">
+                <img src={serverResponse.videos} alt="videos" />
+                <p className="notes-para">{serverResponse.videosText}</p>
               </div>
-              <div>
-                <img src={serverResponse.community} alt="vast community" />
-                <p>{serverResponse.communityText}</p>
-              </div>
-              <div>
-                <img
-                  src={serverResponse.interaction}
-                  alt="interactive engagement"
-                />
-                <p>{serverResponse.interactionText}</p>
-              </div>
-            </div>
+            </Slide>
             <Slide direction="left">
-              <div className="second-container">
-                <img src={serverResponse.growth} alt="continuous growth" />
-                <p>{serverResponse.growthText}</p>
+              <div className="container">
+                <img src={serverResponse.community} alt="community" />
+                <p className="notes-para">{serverResponse.communityText}</p>
+              </div>
+            </Slide>
+            <Slide direction="right">
+              <div className="container">
+                <img src={serverResponse.interaction} alt="interaction" />
+                <p className="notes-para">{serverResponse.interactionText}</p>
+              </div>
+            </Slide>
+            <Slide direction="up">
+              <div className="container">
+                <img src={serverResponse.growth} alt="growth" />
+                <p className="notes-para">{serverResponse.growthText}</p>
               </div>
             </Slide>
           </main>

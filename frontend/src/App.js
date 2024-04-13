@@ -10,7 +10,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
 
 function App() {
   const [isDeveloper, toggleDeveloper] = useState(true);
-  const [token, setToken] = useState(null);
+  const [token, setToken] = useState('');
   const toggle = () => {
     toggleDeveloper((prevState) => !prevState);
   };

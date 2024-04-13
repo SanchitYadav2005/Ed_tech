@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Home from "./pages/Home";
 import Diversion from "./pages/Diversion";
 import Login from "./pages/Login";
@@ -7,25 +7,14 @@ import FilePage from "./pages/FilePage";
 import Notes from "./pages/Notes";
 import Videos from "./pages/Videos";
 import { Routes, Route, Navigate } from "react-router-dom";
+import useAuthContext from "./hooks/useAuthContext";
 
 function App() {
   const [isDeveloper, toggleDeveloper] = useState(true);
-  const [token, setToken] = useState('');
+  const { state } = useAuthContext(); 
   const toggle = () => {
     toggleDeveloper((prevState) => !prevState);
   };
-  const getToken = () => {
-    const storedToken = localStorage.getItem("token");
-    if (storedToken) {
-      setToken(storedToken);
-    } else {
-      console.log("No token found!");
-    }
-  };
-
-  useEffect(() => {
-    getToken();
-  });
 
   return (
     <React.Fragment>
@@ -47,15 +36,15 @@ function App() {
         <Route path="/learner/signup" element={<Signup />} />
         <Route
           path={`/developer/:id`}
-          element={token ? <FilePage /> : <Navigate to={"/register"} />}
+          element={state.user ? <FilePage /> : <Navigate to={"/register"} />}
         />
         <Route
           path="/notes"
-          element={token ? <Notes /> : <Navigate to={"/register"} />}
+          element={state.user ? <Notes /> : <Navigate to={"/register"} />}
         />
         <Route
           path="/videos"
-          element={token ? <Videos /> : <Navigate to={"/register"} />}
+          element={state.user ? <Videos /> : <Navigate to={"/register"} />}
         />
       </Routes>
     </React.Fragment>

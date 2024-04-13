@@ -4,7 +4,7 @@ import useAuthContext from "../hooks/useAuthContext";
 import { useLogOut } from "../hooks/useLogout";
 
 function Navbar() {
-  const { user } = useAuthContext();
+  const { state } = useAuthContext();
   const { logout } = useLogOut();
   const handleClick = () => {
     logout();
@@ -30,8 +30,8 @@ function Navbar() {
             </a>
           </li>
         </ul>
-        {user ? (
-          <Link onClick={handleClick}>logout</Link>
+        {state.user ? (
+          <Link className="btn" onClick={handleClick}>Logout</Link>
         ) : (
           <Link to="/register" className="btn">
             Register

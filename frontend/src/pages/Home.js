@@ -67,36 +67,30 @@ const Home = () => {
         </header>
         <Fade>
           <main className="about-section">
-            <Slide direction="down">
-              <div className="container">
-                <img src={serverResponse.notes} alt="notes" />
-                <p className="notes-para">{serverResponse.notesText}</p>
-              </div>
-            </Slide>
-            <Slide direction="down">
-              <div className="container">
-                <img src={serverResponse.videos} alt="videos" />
-                <p className="notes-para">{serverResponse.videosText}</p>
-              </div>
-            </Slide>
-            <Slide direction="left">
-              <div className="container">
-                <img src={serverResponse.community} alt="community" />
-                <p className="notes-para">{serverResponse.communityText}</p>
-              </div>
-            </Slide>
-            <Slide direction="right">
-              <div className="container">
-                <img src={serverResponse.interaction} alt="interaction" />
-                <p className="notes-para">{serverResponse.interactionText}</p>
-              </div>
-            </Slide>
-            <Slide direction="up">
-              <div className="container">
-                <img src={serverResponse.growth} alt="growth" />
-                <p className="notes-para">{serverResponse.growthText}</p>
-              </div>
-            </Slide>
+            <div className="container">
+              <img src={serverResponse.notes} alt="notes" />
+              <p className="notes-para">{serverResponse.notesText}</p>
+            </div>
+
+            <div className="container">
+              <img src={serverResponse.videos} alt="videos" />
+              <p className="notes-para">{serverResponse.videosText}</p>
+            </div>
+
+            <div className="container">
+              <img src={serverResponse.community} alt="community" />
+              <p className="notes-para">{serverResponse.communityText}</p>
+            </div>
+
+            <div className="container">
+              <img src={serverResponse.interaction} alt="interaction" />
+              <p className="notes-para">{serverResponse.interactionText}</p>
+            </div>
+
+            <div className="container">
+              <img src={serverResponse.growth} alt="growth" />
+              <p className="notes-para">{serverResponse.growthText}</p>
+            </div>
           </main>
         </Fade>
         <Fade>

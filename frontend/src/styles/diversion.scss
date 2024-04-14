@@ -16,32 +16,48 @@ $font: "Roboto Mono", monospace;
       text-align: center;
       color: #f8f9fa;
     }
-    .signup, .login{
-        display: block;
-        text-decoration: none;
-        padding: 1.5em 1em 1.5em 1em;
-        border-radius: 20px;
-        color: #fdf0d5;
-        transition: all 0.3s ease-in-out;
+    .signup,
+    .login {
+      display: block;
+      text-decoration: none;
+      padding: 1.5em 1em 1.5em 1em;
+      border-radius: 20px;
+      color: #fdf0d5;
+      transition: all 0.3s ease-in-out;
     }
-    .signup:hover, .login:hover{
-        box-shadow: 10px 10px 5px 0px rgba(65,90,119,0.75);
--webkit-box-shadow: 10px 10px 5px 0px rgba(65,90,119,0.75);
--moz-box-shadow: 10px 10px 5px 0px rgba(65,90,119,0.75);
+    .signup:hover,
+    .login:hover {
+      box-shadow: 10px 10px 5px 0px rgba(65, 90, 119, 0.75);
+      -webkit-box-shadow: 10px 10px 5px 0px rgba(65, 90, 119, 0.75);
+      -moz-box-shadow: 10px 10px 5px 0px rgba(65, 90, 119, 0.75);
     }
-    .signup{
-        margin-bottom: 2em;
-        margin-top: 2em;
-        background-color: #212529;
+    .signup {
+      margin-bottom: 2em;
+      margin-top: 2em;
+      background-color: #212529;
     }
-    .login{
-        background-color: #335c67;
+    .login {
+      background-color: #335c67;
     }
   }
   .developer-section {
-    background-image: linear-gradient(to top, #fb5607, #d01761, #723078, #132c54, #001219);
+    background-image: linear-gradient(
+      to top,
+      #fb5607,
+      #d01761,
+      #723078,
+      #132c54,
+      #001219
+    );
   }
   .learner-section {
-    background-image: linear-gradient(to top, #fb5607, #d01761, #723078, #132c54, #001219);
+    background-image: linear-gradient(
+      to top,
+      #fb5607,
+      #d01761,
+      #723078,
+      #132c54,
+      #001219
+    );
   }
 }

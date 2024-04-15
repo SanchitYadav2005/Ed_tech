@@ -2,16 +2,10 @@ import "../styles/navbar.scss";
 import { Link } from "react-router-dom";
 import useAuthContext from "../hooks/useAuthContext";
 import { useLogOut } from "../hooks/useLogout";
-import Hamburger from "./Hamburger";
-import { useState } from "react";
 
 function Navbar() {
   const { state } = useAuthContext();
   const { logout } = useLogOut();
-  const [hamburgerOpen, setHamburgerOpen] = useState(false);
-  const toggleHamburger = () => {
-    setHamburgerOpen(!hamburgerOpen);
-  };
   const handleClick = () => {
     logout();
   };
@@ -46,9 +40,6 @@ function Navbar() {
           </Link>
         )}
       </nav>
-      <div className="hamburger" onClick={toggleHamburger}>
-        <Hamburger isOpen={hamburgerOpen} />
-      </div>
     </>
   );
 }

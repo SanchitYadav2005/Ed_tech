@@ -32,7 +32,6 @@ app.use(
 
 //routes
 app.use("/api/user/", userRoutes);
-app.use("/", staticRoutes);
 app.use("/api/user/", fileRoutes)
 
 

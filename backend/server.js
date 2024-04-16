@@ -5,7 +5,6 @@ const path = require("path");
 const cors = require("cors");
 const mongoose = require("mongoose");
 const userRoutes = require("./routes/userRoutes");
-const staticRoutes = require("./routes/staticRoutes");
 const fileRoutes = require("./routes/fileRoutes");
 const session = require("express-session");
 const compression = require("compression");

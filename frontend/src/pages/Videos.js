@@ -4,6 +4,7 @@ import Loader from "../components/Loader";
 import { useState, useEffect } from "react";
 import { useGetAllLinks } from "../hooks/getAllLinks";
 import SingleVideo from "../components/SingleVideo";
+import { Helmet } from "react-helmet";
 
 const Videos = () => {
   const [videoData, setVideoData] = useState([]);
@@ -30,6 +31,9 @@ const Videos = () => {
 
   return (
     <>
+    <Helmet>
+      <title>Dezire | videos</title>
+    </Helmet>
       <PostNav />
       {isLoading ? (
         <Loader />

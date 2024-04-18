@@ -3,6 +3,7 @@ import SecondNavbar from "../components/SecondNavbar";
 import "../styles/filePage.scss";
 import { useUpload } from "../hooks/useUpload";
 import { useParams } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 const FilePage = () => {
   let { id } = useParams();
@@ -34,6 +35,9 @@ const FilePage = () => {
 
   return (
     <>
+    <Helmet>
+      <title>Dzire - upload file & link</title>
+    </Helmet>
       <SecondNavbar />
       <main className="main-container">
         <div className="file-container">

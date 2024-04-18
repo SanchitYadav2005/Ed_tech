@@ -9,10 +9,14 @@ import community from "../assets/community.jpg";
 import interaction from "../assets/interaction.jpg";
 import growth from "../assets/growth.jpg";
 import programmer from "../assets/Programmer.gif";
+import {Helmet} from "react-helmet";
 
 const Home = () => {
   return (
     <>
+    <Helmet>
+      <title>Dezire | home</title>
+    </Helmet>
       <Fade>
         <Navbar />
       </Fade>

@@ -3,12 +3,12 @@ import Footer from "../components/Footer";
 import { TypeAnimation } from "react-type-animation";
 import { Fade } from "react-awesome-reveal";
 import "../styles/home.scss";
-import videos from "../assests/videos.jpg";
-import notes from "../assests/notes.jpg";
-import community from "../assests/community.jpg";
-import interaction from "../assests/interaction.jpg";
-import growth from "../assests/growth.jpg";
-import programmer from "../assests/Programmer.gif";
+import videos from "../assets/videos.jpg";
+import notes from "../assets/notes.jpg";
+import community from "../assets/community.jpg";
+import interaction from "../assets/interaction.jpg";
+import growth from "../assets/growth.jpg";
+import programmer from "../assets/Programmer.gif";
 
 const Home = () => {
   return (

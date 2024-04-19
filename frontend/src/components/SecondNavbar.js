@@ -17,7 +17,7 @@ const SecondNavbar = () => {
   useEffect(() => {
     const getData = async () => {
       try {
-        const gotData = await localStorage.getItem("user");
+        const gotData =localStorage.getItem("user");
         if (gotData) {
           const userData = JSON.parse(gotData);
           setData(userData);

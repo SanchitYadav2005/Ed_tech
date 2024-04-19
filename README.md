@@ -25,8 +25,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/SanchitYadav2005/Ed_tech/blob/master/frontend/public/logo.png">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+    <img src="frontend/public/logo.png" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">Dezire</h3>
@@ -43,12 +42,12 @@
 It is a website that helps developer to share there knowledge. And others to gain from it.
 
 
-
 ### Built With
-* [![React][React.js]][React-url](https://react.dev/)
-* [![Node][Node.js]][Node-url](https://nodejs.org/en)
-* [![Express][express.js]][express-url](https://expressjs.com/)
-* [![mongodb][mongodb.js]][mongodb-url](https://www.mongodb.com/)
+* [![React](https://img.shields.io/badge/React-61DAFB?style=flat&logo=react&logoColor=white)](https://react.dev/)
+* [![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat&logo=node.js&logoColor=white)](https://nodejs.org/en)
+* [![Express](https://img.shields.io/badge/Express-000000?style=flat&logo=express&logoColor=white)](https://expressjs.com/)
+* [![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=flat&logo=mongodb&logoColor=white)](https://www.mongodb.com/)
+
 
 
 

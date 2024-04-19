@@ -31,7 +31,7 @@ const Signup = ({ isDeveloper }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(state.user?.developer?._id);
+    console.log(state?.user?.developer?._id);
     const body = isDeveloper
       ? { email: email, password: password, role: role }
       : { email: email, password: password };
@@ -40,7 +40,7 @@ const Signup = ({ isDeveloper }) => {
     setEmail("");
     setPassword("");
     setRole("");
-    navigate(`/developer/${state.user.developer._id}/`);
+    navigate(`/developer/${state?.user?.developer?._id}/`);
   };
 
   return (

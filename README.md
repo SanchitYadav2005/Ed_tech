@@ -18,12 +18,7 @@
 *** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
 -->
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
+
 
 
 
@@ -50,10 +45,10 @@ It is a website that helps developer to share there knowledge. And others to gai
 
 
 ### Built With
-* [![React][React.js]][React-url]
-* [![Node][Node.js]][Node-url]
-* [![Express][express.js]][express-url]
-* [![mongodb][mongodb.js]][mongodb-url]
+* [![React][React.js]][React-url](https://react.dev/)
+* [![Node][Node.js]][Node-url](https://nodejs.org/en)
+* [![Express][express.js]][express-url](https://expressjs.com/)
+* [![mongodb][mongodb.js]][mongodb-url](https://www.mongodb.com/)
 
 
 
